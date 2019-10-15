@@ -1,0 +1,47 @@
+RAM Allocation [bytes]
+Variable                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+FND_Data                                                                          0x0160      36
+EEPROM_Init_Data                                                                  0x0184      16
+UART0_DATA                                                                        0x0194       1
+RS232_BUFF                                                                        0x0195      10
+NDX_232                                                                           0x019F       1
+rtnMsg                                                                            0x01A0       8
+Tmr_Cnt0                                                                          0x01A8       1
+RS232_RS_Limit                                                                    0x01A9       1
+d100                                                                              0x01AA       1
+d10                                                                               0x01AB       1
+d1                                                                                0x01AC       1
+
+EEPROM Allocation [bytes]
+Variable                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+
+Register Allocation
+Variable                                                                          Register  Size
+------------------------------------------------------------------------------------------------
+FND_Time                                                                          R5           1
+tmr_cnt                                                                           R6,R7        2
+FND_Dig                                                                           R4           1
+EEPROM_Init_Addr                                                                  R8,R9        2
+L0_Addr                                                                           R10,R11      2
+L1_Addr                                                                           R12,R13      2
+RS232_FLAG                                                                        R2.0      1bit
+RS_Finish_Flag                                                                    R2.1      1bit
+
+FLASH Allocation [words]
+Function                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+Clear_Set                                                                         0x00097     16
+CHK_Light                                                                         0x000A7     12
+EEPROM_read                                                                       0x000B3     11
+EEPROM_write                                                                      0x000BE     12
+EEPROM_INIT                                                                       0x000CA     21
+PWM_UPDATE                                                                        0x000DF     41
+ext_int0_isr                                                                      0x00108     23
+ext_int1_isr                                                                      0x0011F     27
+timer2_ovf_isr                                                                    0x0013A    131
+putString0                                                                        0x001BD     21
+usart_rx_isr                                                                      0x001D2     71
+main                                                                              0x00219    124
+memset                                                                            0x00295     16
