@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.1.30  D:\AVR_PGM\LC_Test\Release\List\main.asm Thu Nov 29 09:51:32 2018
+AVRASM ver. 2.1.30  D:\AVR_PGM\LC_Test\Release\List\main.asm Tue Nov 19 17:21:31 2019
 
 D:\AVR_PGM\LC_Test\Release\List\main.asm(1088): warning: Register r5 already defined by the .DEF directive
 D:\AVR_PGM\LC_Test\Release\List\main.asm(1089): warning: Register r6 already defined by the .DEF directive
@@ -1294,7 +1294,7 @@ D:\AVR_PGM\LC_Test\Release\List\main.asm(1156): warning: .cseg .db misalignment 
 000093 e6c0      	LDI  R28,LOW(__SRAM_START+__DSTACK_SIZE)
 000094 e0d1      	LDI  R29,HIGH(__SRAM_START+__DSTACK_SIZE)
                  
-000095 940c 0219 	JMP  _main
+000095 940c 0218 	JMP  _main
                  
                  	.ESEG
                  	.ORG 0
@@ -1414,14 +1414,14 @@ D:\AVR_PGM\LC_Test\Release\List\main.asm(1156): warning: .cseg .db misalignment 
 00009c 93ea      	ST   -Y,R30
 00009d e0aa      	LDI  R26,LOW(10)
 00009e e0b0      	LDI  R27,0
-00009f 940e 0295 	CALL _memset
+00009f 940e 0298 	CALL _memset
                  ; 0000 002F 	RS_Finish_Flag = 0;
 0000a1 94e8      	CLT
 0000a2 f821      	BLD  R2,1
                  ; 0000 0030     RS232_FLAG = 0;
 0000a3 f820      	BLD  R2,0
                  ; 0000 0031 	Tmr_Cnt0 = 0;
-0000a4 940e 02a5 	CALL SUBOPT_0x0
+0000a4 940e 02a8 	CALL SUBOPT_0x0
                  ; 0000 0032     NDX_232 = 0;
                  ; 0000 0033 }
 0000a6 9508      	RET
@@ -1681,7 +1681,7 @@ D:\AVR_PGM\LC_Test\Release\List\main.asm(1156): warning: .cseg .db misalignment 
 00010e b5ea      	IN   R30,0x2A
 00010f b5fb      	IN   R31,0x2A+1
 000110 9631      	ADIW R30,1
-000111 c003      	RJMP _0x7B
+000111 c003      	RJMP _0x7F
                  ;        }
                  ;        else
                  _0x16:
@@ -1690,7 +1690,7 @@ D:\AVR_PGM\LC_Test\Release\List\main.asm(1156): warning: .cseg .db misalignment 
 000112 b5ea      	IN   R30,0x2A
 000113 b5fb      	IN   R31,0x2A+1
 000114 9731      	SBIW R30,1
-                 _0x7B:
+                 _0x7F:
 000115 bdfb      	OUT  0x2A+1,R31
 000116 bdea      	OUT  0x2A,R30
                  ;        }
@@ -1714,7 +1714,7 @@ D:\AVR_PGM\LC_Test\Release\List\main.asm(1156): warning: .cseg .db misalignment 
                  _0x1B:
                  ;
                  ;    }
-00011e c016      	RJMP _0x80
+00011e c016      	RJMP _0x84
                  ; .FEND
                  ;
                  ;    // External Interrupt 1 service routine
@@ -1735,7 +1735,7 @@ D:\AVR_PGM\LC_Test\Release\List\main.asm(1156): warning: .cseg .db misalignment 
 000125 b5e8      	IN   R30,0x28
 000126 b5f9      	IN   R31,0x28+1
 000127 9631      	ADIW R30,1
-000128 c003      	RJMP _0x7C
+000128 c003      	RJMP _0x80
                  ;            }
                  ;            else
                  _0x1E:
@@ -1744,7 +1744,7 @@ D:\AVR_PGM\LC_Test\Release\List\main.asm(1156): warning: .cseg .db misalignment 
 000129 b5e8      	IN   R30,0x28
 00012a b5f9      	IN   R31,0x28+1
 00012b 9731      	SBIW R30,1
-                 _0x7C:
+                 _0x80:
 00012c bdf9      	OUT  0x28+1,R31
 00012d bde8      	OUT  0x28,R30
                  ;            }
@@ -1767,7 +1767,7 @@ D:\AVR_PGM\LC_Test\Release\List\main.asm(1156): warning: .cseg .db misalignment 
                  ;            }
                  _0x23:
                  ;     }
-                 _0x80:
+                 _0x84:
 000135 91e9      	LD   R30,Y+
 000136 bfef      	OUT  SREG,R30
 000137 91f9      	LD   R31,Y+
@@ -1862,15 +1862,15 @@ D:\AVR_PGM\LC_Test\Release\List\main.asm(1156): warning: .cseg .db misalignment 
                  ;                d100 = L1_PWM % 1000/100;
 00016d b5e8      	IN   R30,0x28
 00016e b5f9      	IN   R31,0x28+1
-00016f 940e 02ab 	CALL SUBOPT_0x1
+00016f 940e 02ae 	CALL SUBOPT_0x1
                  ;                d10 = L1_PWM % 100/10;
 000171 b5e8      	IN   R30,0x28
 000172 b5f9      	IN   R31,0x28+1
-000173 940e 02b8 	CALL SUBOPT_0x2
+000173 940e 02bb 	CALL SUBOPT_0x2
                  ;                d1 = L1_PWM % 10;
 000175 b5e8      	IN   R30,0x28
 000176 b5f9      	IN   R31,0x28+1
-000177 c00a      	RJMP _0x7D
+000177 c00a      	RJMP _0x81
                  ;            }
                  ;            else
                  _0x35:
@@ -1878,19 +1878,19 @@ D:\AVR_PGM\LC_Test\Release\List\main.asm(1156): warning: .cseg .db misalignment 
                  ;                d100 = L0_PWM % 1000/100;
 000178 b5ea      	IN   R30,0x2A
 000179 b5fb      	IN   R31,0x2A+1
-00017a 940e 02ab 	CALL SUBOPT_0x1
+00017a 940e 02ae 	CALL SUBOPT_0x1
                  ;                d10 = L0_PWM % 100/10;
 00017c b5ea      	IN   R30,0x2A
 00017d b5fb      	IN   R31,0x2A+1
-00017e 940e 02b8 	CALL SUBOPT_0x2
+00017e 940e 02bb 	CALL SUBOPT_0x2
                  ;                d1 = L0_PWM % 10;
 000180 b5ea      	IN   R30,0x2A
 000181 b5fb      	IN   R31,0x2A+1
-                 _0x7D:
+                 _0x81:
 000182 01df      	MOVW R26,R30
 000183 e0ea      	LDI  R30,LOW(10)
 000184 e0f0      	LDI  R31,HIGH(10)
-000185 940e 0307 	CALL __MODW21U
+000185 940e 030a 	CALL __MODW21U
 000187 93e0 01ac 	STS  _d1,R30
                  ;            }
                  ;
@@ -1902,7 +1902,7 @@ D:\AVR_PGM\LC_Test\Release\List\main.asm(1156): warning: .cseg .db misalignment 
 00018b 30e0      	CPI  R30,0
 00018c f421      	BRNE _0x3A
                  ;                     FND_PORT = FND_Data[d100];
-00018d 940e 02c5 	CALL SUBOPT_0x3
+00018d 940e 02c8 	CALL SUBOPT_0x3
                  ;                     FND0_D0 = 1;
 00018f 9ac2      	SBI  0x18,2
                  ;                     break;
@@ -1913,7 +1913,7 @@ D:\AVR_PGM\LC_Test\Release\List\main.asm(1156): warning: .cseg .db misalignment 
 000191 30e1      	CPI  R30,LOW(0x1)
 000192 f421      	BRNE _0x3D
                  ;                    FND_PORT = FND_Data[d10];
-000193 940e 02d1 	CALL SUBOPT_0x4
+000193 940e 02d4 	CALL SUBOPT_0x4
                  ;                    FND0_D1 = 1;
 000195 9ac3      	SBI  0x18,3
                  ;                    break;
@@ -1924,7 +1924,7 @@ D:\AVR_PGM\LC_Test\Release\List\main.asm(1156): warning: .cseg .db misalignment 
 000197 30e2      	CPI  R30,LOW(0x2)
 000198 f421      	BRNE _0x40
                  ;                    FND_PORT = FND_Data[d1];
-000199 940e 02dd 	CALL SUBOPT_0x5
+000199 940e 02e0 	CALL SUBOPT_0x5
                  ;                    FND0_D2 = 1;
 00019b 9ac4      	SBI  0x18,4
                  ;                    break;
@@ -1935,7 +1935,7 @@ D:\AVR_PGM\LC_Test\Release\List\main.asm(1156): warning: .cseg .db misalignment 
 00019d 30e3      	CPI  R30,LOW(0x3)
 00019e f421      	BRNE _0x43
                  ;                    FND_PORT = FND_Data[d100];
-00019f 940e 02c5 	CALL SUBOPT_0x3
+00019f 940e 02c8 	CALL SUBOPT_0x3
                  ;                    FND1_D0 = 1;
 0001a1 9aa8      	SBI  0x15,0
                  ;                    break;
@@ -1946,7 +1946,7 @@ D:\AVR_PGM\LC_Test\Release\List\main.asm(1156): warning: .cseg .db misalignment 
 0001a3 30e4      	CPI  R30,LOW(0x4)
 0001a4 f421      	BRNE _0x46
                  ;                    FND_PORT= FND_Data[d10];
-0001a5 940e 02d1 	CALL SUBOPT_0x4
+0001a5 940e 02d4 	CALL SUBOPT_0x4
                  ;                    FND1_D1 = 1;
 0001a7 9aa9      	SBI  0x15,1
                  ;                    break;
@@ -1957,7 +1957,7 @@ D:\AVR_PGM\LC_Test\Release\List\main.asm(1156): warning: .cseg .db misalignment 
 0001a9 30e5      	CPI  R30,LOW(0x5)
 0001aa f421      	BRNE _0x39
                  ;                    FND_PORT = FND_Data[d1];
-0001ab 940e 02dd 	CALL SUBOPT_0x5
+0001ab 940e 02e0 	CALL SUBOPT_0x5
                  ;                    FND1_D2 = 1;
 0001ad 9aaf      	SBI  0x15,7
                  ;                    FND_Dig = 0;
@@ -2090,103 +2090,102 @@ D:\AVR_PGM\LC_Test\Release\List\main.asm(1156): warning: .cseg .db misalignment 
                  ;    if ((status & (FRAMING_ERROR | PARITY_ERROR | DATA_OVERRUN))==0)
 0001db 2fe1      	MOV  R30,R17
 0001dc 71ec      	ANDI R30,LOW(0x1C)
-0001dd f599      	BRNE _0x55
+0001dd f591      	BRNE _0x55
                  ;    {
                  ;        UART0_DATA=data;
 0001de 9300 0194 	STS  _UART0_DATA,R16
                  ;        //putchar0(UART0_DATA);
-                 ;        PORTC.6 = 0xff;
-0001e0 9aae      	SBI  0x15,6
+                 ;        //PORTC.6 = 0xff;    ?? 19.11.19 주석처리
                  ;
                  ;        if(UART0_DATA == 0x1B)
-0001e1 91a0 0194 	LDS  R26,_UART0_DATA
-0001e3 31ab      	CPI  R26,LOW(0x1B)
-0001e4 f421      	BRNE _0x58
+0001e0 91a0 0194 	LDS  R26,_UART0_DATA
+0001e2 31ab      	CPI  R26,LOW(0x1B)
+0001e3 f421      	BRNE _0x56
                  ;        {
                  ;            Tmr_Cnt0 = 0;
-0001e5 940e 02a5 	CALL SUBOPT_0x0
+0001e4 940e 02a8 	CALL SUBOPT_0x0
                  ;            NDX_232 = 0;
                  ;            RS232_FLAG = 1;
-0001e7 9468      	SET
-0001e8 f820      	BLD  R2,0
+0001e6 9468      	SET
+0001e7 f820      	BLD  R2,0
                  ;        }
                  ;
                  ;        if(RS232_FLAG)
-                 _0x58:
-0001e9 fe20      	SBRS R2,0
-0001ea c023      	RJMP _0x59
+                 _0x56:
+0001e8 fe20      	SBRS R2,0
+0001e9 c023      	RJMP _0x57
                  ;        {
                  ;            //PORTC.6 = 0xff;
                  ;            //if(UART0_DATA == 0x02)
                  ;            if(UART0_DATA == 0x1B)
-0001eb 91a0 0194 	LDS  R26,_UART0_DATA
-0001ed 31ab      	CPI  R26,LOW(0x1B)
-0001ee f419      	BRNE _0x5A
+0001ea 91a0 0194 	LDS  R26,_UART0_DATA
+0001ec 31ab      	CPI  R26,LOW(0x1B)
+0001ed f419      	BRNE _0x58
                  ;            {
                  ;                RS232_BUFF[NDX_232] =   UART0_DATA;
-0001ef 91e0 019f 	LDS  R30,_NDX_232
-0001f1 c005      	RJMP _0x7E
+0001ee 91e0 019f 	LDS  R30,_NDX_232
+0001f0 c005      	RJMP _0x82
                  ;            }
                  ;            else
-                 _0x5A:
+                 _0x58:
                  ;            {
                  ;                RS232_BUFF[++NDX_232] =   UART0_DATA;
-0001f2 91e0 019f 	LDS  R30,_NDX_232
-0001f4 5fef      	SUBI R30,-LOW(1)
-0001f5 93e0 019f 	STS  _NDX_232,R30
-                 _0x7E:
-0001f7 e0f0      	LDI  R31,0
-0001f8 56eb      	SUBI R30,LOW(-_RS232_BUFF)
-0001f9 4ffe      	SBCI R31,HIGH(-_RS232_BUFF)
-0001fa 91a0 0194 	LDS  R26,_UART0_DATA
-0001fc 83a0      	STD  Z+0,R26
+0001f1 91e0 019f 	LDS  R30,_NDX_232
+0001f3 5fef      	SUBI R30,-LOW(1)
+0001f4 93e0 019f 	STS  _NDX_232,R30
+                 _0x82:
+0001f6 e0f0      	LDI  R31,0
+0001f7 56eb      	SUBI R30,LOW(-_RS232_BUFF)
+0001f8 4ffe      	SBCI R31,HIGH(-_RS232_BUFF)
+0001f9 91a0 0194 	LDS  R26,_UART0_DATA
+0001fb 83a0      	STD  Z+0,R26
                  ;            }
                  ;
                  ;
                  ;            //if(UART0_DATA ==  0x03 && NDX_232 == 4)
                  ;            if((UART0_DATA ==  0x0D && NDX_232 == 5) || (UART0_DATA == 0x0D && NDX_232 == 7))
-0001fd 30ad      	CPI  R26,LOW(0xD)
-0001fe f421      	BRNE _0x5D
-0001ff 91a0 019f 	LDS  R26,_NDX_232
-000201 30a5      	CPI  R26,LOW(0x5)
-000202 f049      	BREQ _0x5F
+0001fc 30ad      	CPI  R26,LOW(0xD)
+0001fd f421      	BRNE _0x5B
+0001fe 91a0 019f 	LDS  R26,_NDX_232
+000200 30a5      	CPI  R26,LOW(0x5)
+000201 f049      	BREQ _0x5D
+                 _0x5B:
+000202 91a0 0194 	LDS  R26,_UART0_DATA
+000204 30ad      	CPI  R26,LOW(0xD)
+000205 f421      	BRNE _0x5E
+000206 91a0 019f 	LDS  R26,_NDX_232
+000208 30a7      	CPI  R26,LOW(0x7)
+000209 f009      	BREQ _0x5D
+                 _0x5E:
+00020a c002      	RJMP _0x5A
                  _0x5D:
-000203 91a0 0194 	LDS  R26,_UART0_DATA
-000205 30ad      	CPI  R26,LOW(0xD)
-000206 f421      	BRNE _0x60
-000207 91a0 019f 	LDS  R26,_NDX_232
-000209 30a7      	CPI  R26,LOW(0x7)
-00020a f009      	BREQ _0x5F
-                 _0x60:
-00020b c002      	RJMP _0x5C
-                 _0x5F:
                  ;            {
                  ;                RS_Finish_Flag = 1;
-00020c 9468      	SET
-00020d f821      	BLD  R2,1
+00020b 9468      	SET
+00020c f821      	BLD  R2,1
                  ;                //RS232_FLAG = 0;
                  ;                //NDX_232 = 0;
                  ;            }	        // END of if(상태요청, 또는 조명 상태변경 일 경우)
                  ;
                  ;        }
-                 _0x5C:
+                 _0x5A:
                  ;
                  ;        UART0_DATA = 0;
-                 _0x59:
-00020e e0e0      	LDI  R30,LOW(0)
-00020f 93e0 0194 	STS  _UART0_DATA,R30
+                 _0x57:
+00020d e0e0      	LDI  R30,LOW(0)
+00020e 93e0 0194 	STS  _UART0_DATA,R30
                  ;
                  ;    }
                  ;}
                  _0x55:
-000211 9109      	LD   R16,Y+
-000212 9119      	LD   R17,Y+
-000213 91e9      	LD   R30,Y+
-000214 bfef      	OUT  SREG,R30
-000215 91f9      	LD   R31,Y+
-000216 91e9      	LD   R30,Y+
-000217 91a9      	LD   R26,Y+
-000218 9518      	RETI
+000210 9109      	LD   R16,Y+
+000211 9119      	LD   R17,Y+
+000212 91e9      	LD   R30,Y+
+000213 bfef      	OUT  SREG,R30
+000214 91f9      	LD   R31,Y+
+000215 91e9      	LD   R30,Y+
+000216 91a9      	LD   R26,Y+
+000217 9518      	RETI
                  ; .FEND
                  ;
                  ;
@@ -2198,32 +2197,32 @@ D:\AVR_PGM\LC_Test\Release\List\main.asm(1156): warning: .cseg .db misalignment 
                  ; 0000 004A 
                  ; 0000 004B     #include "init.c"
                  ;    DDRA = 0xFF;
-000219 efef      	LDI  R30,LOW(255)
-00021a bbea      	OUT  0x1A,R30
+000218 efef      	LDI  R30,LOW(255)
+000219 bbea      	OUT  0x1A,R30
                  ;    PORTA = 0xFF;
-00021b bbeb      	OUT  0x1B,R30
+00021a bbeb      	OUT  0x1B,R30
                  ;
                  ;    //DDRB    = 0b00111111;   // DDRB.0 ~ 1 : Encoder Switch 입력, DDRB.2 ~ 4 : FND set
                  ;    //PORTB   = 0b00111111;
                  ;    DDRB    = 0b11111100;   // DDRB.0 ~ 1 : Encoder Switch 입력, DDRB.2 ~ 4 : FND set
-00021c efec      	LDI  R30,LOW(252)
-00021d bbe7      	OUT  0x17,R30
+00021b efec      	LDI  R30,LOW(252)
+00021c bbe7      	OUT  0x17,R30
                  ;    PORTB   = 0b11111100;
-00021e bbe8      	OUT  0x18,R30
+00021d bbe8      	OUT  0x18,R30
                  ;
                  ;    DDRC = 0xFF;
-00021f efef      	LDI  R30,LOW(255)
-000220 bbe4      	OUT  0x14,R30
+00021e efef      	LDI  R30,LOW(255)
+00021f bbe4      	OUT  0x14,R30
                  ;    PORTC = 0x00;
-000221 e0e0      	LDI  R30,LOW(0)
-000222 bbe5      	OUT  0x15,R30
+000220 e0e0      	LDI  R30,LOW(0)
+000221 bbe5      	OUT  0x15,R30
                  ;
                  ;    DDRD = 0b00110000;
-000223 e3e0      	LDI  R30,LOW(48)
-000224 bbe1      	OUT  0x11,R30
+000222 e3e0      	LDI  R30,LOW(48)
+000223 bbe1      	OUT  0x11,R30
                  ;    PORTD = 0b00000000;
-000225 e0e0      	LDI  R30,LOW(0)
-000226 bbe2      	OUT  0x12,R30
+000224 e0e0      	LDI  R30,LOW(0)
+000225 bbe2      	OUT  0x12,R30
                  ;
                  ;    // Timer/Counter 0 initialization
                  ;    // Clock source: System Clock
@@ -2231,11 +2230,11 @@ D:\AVR_PGM\LC_Test\Release\List\main.asm(1156): warning: .cseg .db misalignment 
                  ;    // Mode: Normal top=0xFF
                  ;    // OC0 output: Disconnected
                  ;        TCCR0=(0<<WGM00) | (0<<COM01) | (0<<COM00) | (0<<WGM01) | (0<<CS02) | (0<<CS01) | (0<<CS00);
-000227 bfe3      	OUT  0x33,R30
+000226 bfe3      	OUT  0x33,R30
                  ;        TCNT0=0x00;
-000228 bfe2      	OUT  0x32,R30
+000227 bfe2      	OUT  0x32,R30
                  ;        OCR0=0x00;
-000229 bfec      	OUT  0x3C,R30
+000228 bfec      	OUT  0x3C,R30
                  ;
                  ;     // Timer/Counter 1 initialization
                  ;    // Clock source: System Clock
@@ -2254,28 +2253,28 @@ D:\AVR_PGM\LC_Test\Release\List\main.asm(1156): warning: .cseg .db misalignment 
                  ;    // Compare A Match Interrupt: Off
                  ;    // Compare B Match Interrupt: Off
                  ;    TCCR1A=(1<<COM1A1) | (0<<COM1A0) | (1<<COM1B1) | (0<<COM1B0) | (0<<WGM11) | (1<<WGM10);
-00022a eae1      	LDI  R30,LOW(161)
-00022b bdef      	OUT  0x2F,R30
+000229 eae1      	LDI  R30,LOW(161)
+00022a bdef      	OUT  0x2F,R30
                  ;    TCCR1B=(0<<ICNC1) | (1<<ICES1) | (0<<WGM13) | (1<<WGM12) | (0<<CS12) | (1<<CS11) | (1<<CS10);
-00022c e4eb      	LDI  R30,LOW(75)
-00022d bdee      	OUT  0x2E,R30
+00022b e4eb      	LDI  R30,LOW(75)
+00022c bdee      	OUT  0x2E,R30
                  ;    TCNT1H=0x00;
-00022e e0e0      	LDI  R30,LOW(0)
-00022f bded      	OUT  0x2D,R30
+00022d e0e0      	LDI  R30,LOW(0)
+00022e bded      	OUT  0x2D,R30
                  ;    TCNT1L=0x00;
-000230 bdec      	OUT  0x2C,R30
+00022f bdec      	OUT  0x2C,R30
                  ;    ICR1H=0x00;
-000231 bde7      	OUT  0x27,R30
+000230 bde7      	OUT  0x27,R30
                  ;    ICR1L=0x00;
-000232 bde6      	OUT  0x26,R30
+000231 bde6      	OUT  0x26,R30
                  ;    OCR1AH=0x00;
-000233 bdeb      	OUT  0x2B,R30
+000232 bdeb      	OUT  0x2B,R30
                  ;    OCR1AL=0x00;
-000234 bdea      	OUT  0x2A,R30
+000233 bdea      	OUT  0x2A,R30
                  ;    OCR1BH=0x00;
-000235 bde9      	OUT  0x29,R30
+000234 bde9      	OUT  0x29,R30
                  ;    OCR1BL=0x00;
-000236 bde8      	OUT  0x28,R30
+000235 bde8      	OUT  0x28,R30
                  ;
                  ;    // Timer/Counter 2 initialization
                  ;    // Clock source: System Clock
@@ -2284,22 +2283,22 @@ D:\AVR_PGM\LC_Test\Release\List\main.asm(1156): warning: .cseg .db misalignment 
                  ;    // OC2 output: Disconnected
                  ;    // Timer Period: 1 ms
                  ;    ASSR=0<<AS2;
-000237 bde2      	OUT  0x22,R30
+000236 bde2      	OUT  0x22,R30
                  ;    TCCR2=(0<<PWM2) | (0<<COM21) | (0<<COM20) | (0<<CTC2) | (1<<CS22) | (0<<CS21) | (0<<CS20);
-000238 e0e4      	LDI  R30,LOW(4)
-000239 bde5      	OUT  0x25,R30
+000237 e0e4      	LDI  R30,LOW(4)
+000238 bde5      	OUT  0x25,R30
                  ;    TCNT2=0x06;
-00023a e0e6      	LDI  R30,LOW(6)
-00023b bde4      	OUT  0x24,R30
+000239 e0e6      	LDI  R30,LOW(6)
+00023a bde4      	OUT  0x24,R30
                  ;    OCR2=0x00;
-00023c e0e0      	LDI  R30,LOW(0)
-00023d bde3      	OUT  0x23,R30
+00023b e0e0      	LDI  R30,LOW(0)
+00023c bde3      	OUT  0x23,R30
                  ;
                  ;    // Timer(s)/Counter(s) Interrupt(s) initialization
                  ;    //TIMSK=(0<<OCIE2) | (0<<TOIE2) | (0<<TICIE1) | (0<<OCIE1A) | (0<<OCIE1B) | (1<<TOIE1) | (0<<OCIE0) | (0<<TOIE0);
                  ;    TIMSK=(0<<OCIE2) | (1<<TOIE2) | (0<<TICIE1) | (0<<OCIE1A) | (0<<OCIE1B) | (0<<TOIE1) | (0<<OCIE0) | (0<<TOIE0);
-00023e e4e0      	LDI  R30,LOW(64)
-00023f bfe9      	OUT  0x39,R30
+00023d e4e0      	LDI  R30,LOW(64)
+00023e bfe9      	OUT  0x39,R30
                  ;
                  ;    // External Interrupt(s) initialization
                  ;    // INT0: On
@@ -2308,18 +2307,18 @@ D:\AVR_PGM\LC_Test\Release\List\main.asm(1156): warning: .cseg .db misalignment 
                  ;    // INT1 Mode: Rising Edge
                  ;    // INT2: Off
                  ;        GICR|=(1<<INT1) | (1<<INT0) | (0<<INT2);
-000240 b7eb      	IN   R30,0x3B
-000241 6ce0      	ORI  R30,LOW(0xC0)
-000242 bfeb      	OUT  0x3B,R30
+00023f b7eb      	IN   R30,0x3B
+000240 6ce0      	ORI  R30,LOW(0xC0)
+000241 bfeb      	OUT  0x3B,R30
                  ;        MCUCR=(1<<ISC11) | (1<<ISC10) | (1<<ISC01) | (1<<ISC00);
-000243 e0ef      	LDI  R30,LOW(15)
-000244 bfe5      	OUT  0x35,R30
+000242 e0ef      	LDI  R30,LOW(15)
+000243 bfe5      	OUT  0x35,R30
                  ;        MCUCSR=(0<<ISC2);
-000245 e0e0      	LDI  R30,LOW(0)
-000246 bfe4      	OUT  0x34,R30
+000244 e0e0      	LDI  R30,LOW(0)
+000245 bfe4      	OUT  0x34,R30
                  ;        GIFR=(1<<INTF1) | (1<<INTF0) | (0<<INTF2);
-000247 ece0      	LDI  R30,LOW(192)
-000248 bfea      	OUT  0x3A,R30
+000246 ece0      	LDI  R30,LOW(192)
+000247 bfea      	OUT  0x3A,R30
                  ;
                  ;        //EIMSK = 0x03;   // 외부인터럽트 0,1 Set(INT0, INT1)
                  ;        //EICRA  =0x0E;   // INT0, INT1 상승에지 선언(ob00001111)
@@ -2331,173 +2330,197 @@ D:\AVR_PGM\LC_Test\Release\List\main.asm(1156): warning: .cseg .db misalignment 
                  ;    // USART Mode: Asynchronous
                  ;    // USART Baud Rate: 9600
                  ;    UCSRA=(0<<RXC) | (0<<TXC) | (0<<UDRE) | (0<<FE) | (0<<DOR) | (0<<UPE) | (0<<U2X) | (0<<MPCM);
-000249 e0e0      	LDI  R30,LOW(0)
-00024a b9eb      	OUT  0xB,R30
+000248 e0e0      	LDI  R30,LOW(0)
+000249 b9eb      	OUT  0xB,R30
                  ;    UCSRB=(1<<RXCIE) | (0<<TXCIE) | (0<<UDRIE) | (1<<RXEN) | (1<<TXEN) | (0<<UCSZ2) | (0<<RXB8) | (0<<TXB8);
-00024b e9e8      	LDI  R30,LOW(152)
-00024c b9ea      	OUT  0xA,R30
+00024a e9e8      	LDI  R30,LOW(152)
+00024b b9ea      	OUT  0xA,R30
                  ;    UCSRC=(1<<URSEL) | (0<<UMSEL) | (0<<UPM1) | (0<<UPM0) | (0<<USBS) | (1<<UCSZ1) | (1<<UCSZ0) | (0<<UCPOL);
-00024d e8e6      	LDI  R30,LOW(134)
-00024e bde0      	OUT  0x20,R30
+00024c e8e6      	LDI  R30,LOW(134)
+00024d bde0      	OUT  0x20,R30
                  ;    UBRRH=0x00;
-00024f e0e0      	LDI  R30,LOW(0)
-000250 bde0      	OUT  0x20,R30
+00024e e0e0      	LDI  R30,LOW(0)
+00024f bde0      	OUT  0x20,R30
                  ;    UBRRL=0x67;
-000251 e6e7      	LDI  R30,LOW(103)
-000252 b9e9      	OUT  0x9,R30
+000250 e6e7      	LDI  R30,LOW(103)
+000251 b9e9      	OUT  0x9,R30
                  ;
                  ; 0000 004C 
                  ; 0000 004D     #asm("sei")             // Global enable interrupts
-000253 9478      	sei
+000252 9478      	sei
                  ; 0000 004E 
                  ; 0000 004F     if(EEPROM_read(EEPROM_Init_Addr) == 0xFF)
-000254 01d4      	MOVW R26,R8
-000255 de5d      	RCALL _EEPROM_read
-000256 3fef      	CPI  R30,LOW(0xFF)
-000257 f409      	BRNE _0x63
+000253 01d4      	MOVW R26,R8
+000254 de5e      	RCALL _EEPROM_read
+000255 3fef      	CPI  R30,LOW(0xFF)
+000256 f409      	BRNE _0x61
                  ; 0000 0050     {
                  ; 0000 0051         EEPROM_INIT();
-000258 de71      	RCALL _EEPROM_INIT
+000257 de72      	RCALL _EEPROM_INIT
                  ; 0000 0052     }
                  ; 0000 0053 
                  ; 0000 0054     L0_PWM = EEPROM_read(L0_Addr);
-                 _0x63:
-000259 01d5      	MOVW R26,R10
-00025a de58      	RCALL _EEPROM_read
-00025b e0f0      	LDI  R31,0
-00025c bdfb      	OUT  0x2A+1,R31
-00025d bdea      	OUT  0x2A,R30
+                 _0x61:
+000258 01d5      	MOVW R26,R10
+000259 de59      	RCALL _EEPROM_read
+00025a e0f0      	LDI  R31,0
+00025b bdfb      	OUT  0x2A+1,R31
+00025c bdea      	OUT  0x2A,R30
                  ; 0000 0055     L1_PWM = EEPROM_read(L1_Addr);
-00025e 01d6      	MOVW R26,R12
-00025f de53      	RCALL _EEPROM_read
-000260 e0f0      	LDI  R31,0
-000261 bdf9      	OUT  0x28+1,R31
-000262 bde8      	OUT  0x28,R30
-                 ; 0000 0056 
+00025d 01d6      	MOVW R26,R12
+00025e de54      	RCALL _EEPROM_read
+00025f e0f0      	LDI  R31,0
+000260 bdf9      	OUT  0x28+1,R31
+000261 bde8      	OUT  0x28,R30
+                 ; 0000 0056 /*
                  ; 0000 0057    if(!L0_PWM)
-000263 b5ea      	IN   R30,0x2A
-000264 b5fb      	IN   R31,0x2A+1
-000265 9730      	SBIW R30,0
-000266 f409      	BRNE _0x64
                  ; 0000 0058     {
                  ; 0000 0059         L0_PORT = 0;
-000267 988d      	CBI  0x11,5
                  ; 0000 005A     }
                  ; 0000 005B 
                  ; 0000 005C     if(!L1_PWM)
-                 _0x64:
-000268 b5e8      	IN   R30,0x28
-000269 b5f9      	IN   R31,0x28+1
-00026a 9730      	SBIW R30,0
-00026b f409      	BRNE _0x67
                  ; 0000 005D     {
                  ; 0000 005E         L1_PORT = 0;
-00026c 988c      	CBI  0x11,4
                  ; 0000 005F     }
                  ; 0000 0060 
                  ; 0000 0061     //L0_PWM  =   123;
                  ; 0000 0062     //L1_PWM  =   215;
-                 ; 0000 0063 
+                 ; 0000 0063 */
                  ; 0000 0064     while (1)
-                 _0x67:
-                 _0x6A:
+                 _0x62:
                  ; 0000 0065     {
                  ; 0000 0066 
                  ; 0000 0067         // Place your code here
                  ; 0000 0068         if(SET_L0 || SET_L1)
-00026d 9986      	SBIC 0x10,6
-00026e c002      	RJMP _0x6E
-00026f 9b87      	SBIS 0x10,7
-000270 c006      	RJMP _0x6D
-                 _0x6E:
+000262 9986      	SBIC 0x10,6
+000263 c002      	RJMP _0x66
+000264 9b87      	SBIS 0x10,7
+000265 c006      	RJMP _0x65
+                 _0x66:
                  ; 0000 0069         {
                  ; 0000 006A             if(SET_L0)
-000271 9b86      	SBIS 0x10,6
-000272 c002      	RJMP _0x70
+000266 9b86      	SBIS 0x10,6
+000267 c002      	RJMP _0x68
                  ; 0000 006B             {
                  ; 0000 006C                 PWM_UPDATE(0);
-000273 e0a0      	LDI  R26,LOW(0)
-000274 c001      	RJMP _0x7F
+000268 e0a0      	LDI  R26,LOW(0)
+000269 c001      	RJMP _0x83
                  ; 0000 006D                  //PWM_WRITE(0);
                  ; 0000 006E             }
                  ; 0000 006F             else
-                 _0x70:
+                 _0x68:
                  ; 0000 0070             {
                  ; 0000 0071                 PWM_UPDATE(1);
-000275 e0a1      	LDI  R26,LOW(1)
-                 _0x7F:
-000276 de68      	RCALL _PWM_UPDATE
+00026a e0a1      	LDI  R26,LOW(1)
+                 _0x83:
+00026b de73      	RCALL _PWM_UPDATE
                  ; 0000 0072                 //PWM_WRITE(1);
                  ; 0000 0073             }
                  ; 0000 0074         }
                  ; 0000 0075 
                  ; 0000 0076         if(RS_Finish_Flag)
-                 _0x6D:
-000277 fe21      	SBRS R2,1
-000278 c01a      	RJMP _0x72
+                 _0x65:
+00026c fe21      	SBRS R2,1
+00026d c028      	RJMP _0x6A
                  ; 0000 0077         {
                  ; 0000 0078             switch (RS232_BUFF[2])
                 +
-000279 91e0 0197+LDS R30 , _RS232_BUFF + ( 2 )
+00026e 91e0 0197+LDS R30 , _RS232_BUFF + ( 2 )
                  	__GETB1MN _RS232_BUFF,2
-00027b e0f0      	LDI  R31,0
+000270 e0f0      	LDI  R31,0
                  ; 0000 0079             {
                  ; 0000 007A                 case 0x53 :     // 상태요청
-00027c 35e3      	CPI  R30,LOW(0x53)
-00027d e0a0      	LDI  R26,HIGH(0x53)
-00027e 07fa      	CPC  R31,R26
-00027f f089      	BREQ _0x75
+000271 35e3      	CPI  R30,LOW(0x53)
+000272 e0a0      	LDI  R26,HIGH(0x53)
+000273 07fa      	CPC  R31,R26
+000274 f089      	BREQ _0x6D
                  ; 0000 007B                    // CHK_Light();
                  ; 0000 007C                     break;
                  ; 0000 007D 
                  ; 0000 007E                 case 0x43 :    // 조명변경
-000280 34e3      	CPI  R30,LOW(0x43)
-000281 e0a0      	LDI  R26,HIGH(0x43)
-000282 07fa      	CPC  R31,R26
-000283 f419      	BRNE _0x77
+000275 34e3      	CPI  R30,LOW(0x43)
+000276 e0a0      	LDI  R26,HIGH(0x43)
+000277 07fa      	CPC  R31,R26
+000278 f419      	BRNE _0x6F
                  ; 0000 007F                     L0_PWM = RS232_BUFF[4];
-000284 940e 02e9 	CALL SUBOPT_0x6
+000279 940e 02ec 	CALL SUBOPT_0x6
                  ; 0000 0080                     L1_PWM = RS232_BUFF[5];
                  ; 0000 0081                    // CHK_Light();      // 조명상태 전송
                  ; 0000 0082                     break;
-000286 c00a      	RJMP _0x75
+00027b c00a      	RJMP _0x6D
                  ; 0000 0083 
                  ; 0000 0084                  case 0x57 :    // 조명상태 저장
-                 _0x77:
-000287 35e7      	CPI  R30,LOW(0x57)
-000288 e0a0      	LDI  R26,HIGH(0x57)
-000289 07fa      	CPC  R31,R26
-00028a f431      	BRNE _0x75
+                 _0x6F:
+00027c 35e7      	CPI  R30,LOW(0x57)
+00027d e0a0      	LDI  R26,HIGH(0x57)
+00027e 07fa      	CPC  R31,R26
+00027f f431      	BRNE _0x6D
                  ; 0000 0085                     L0_PWM = RS232_BUFF[4];
-00028b 940e 02e9 	CALL SUBOPT_0x6
+000280 940e 02ec 	CALL SUBOPT_0x6
                  ; 0000 0086                     L1_PWM = RS232_BUFF[5];
                  ; 0000 0087                     PWM_UPDATE(0);      // L0 EEPROM Update
-00028d e0a0      	LDI  R26,LOW(0)
-00028e de50      	RCALL _PWM_UPDATE
+000282 e0a0      	LDI  R26,LOW(0)
+000283 de5b      	RCALL _PWM_UPDATE
                  ; 0000 0088                     PWM_UPDATE(1);      // L1 EEPROM Update
-00028f e0a1      	LDI  R26,LOW(1)
-000290 de4e      	RCALL _PWM_UPDATE
+000284 e0a1      	LDI  R26,LOW(1)
+000285 de59      	RCALL _PWM_UPDATE
                  ; 0000 0089                     // CHK_Light();      // 조명상태 전송
                  ; 0000 008A                     break;
                  ; 0000 008B             }
-                 _0x75:
+                 _0x6D:
                  ; 0000 008C 
-                 ; 0000 008D             CHK_Light();      // 조명상태 전송
-000291 de15      	RCALL _CHK_Light
-                 ; 0000 008E             Clear_Set();
-000292 de04      	RCALL _Clear_Set
-                 ; 0000 008F 
-                 ; 0000 0090         }
-                 ; 0000 0091 
-                 ; 0000 0092          // putString0(RS232_BUFF);
-                 ; 0000 0093 
-                 ; 0000 0094     } // End of while
-                 _0x72:
-000293 cfd9      	RJMP _0x6A
+                 ; 0000 008D             if(!L0_PWM)
+000286 b5ea      	IN   R30,0x2A
+000287 b5fb      	IN   R31,0x2A+1
+000288 9730      	SBIW R30,0
+000289 f411      	BRNE _0x71
+                 ; 0000 008E             {
+                 ; 0000 008F                 L0_PORT = 0;
+00028a 988d      	CBI  0x11,5
+                 ; 0000 0090             }
+                 ; 0000 0091             else
+00028b c001      	RJMP _0x74
+                 _0x71:
+                 ; 0000 0092             {
+                 ; 0000 0093                 L0_PORT = 1;
+00028c 9a8d      	SBI  0x11,5
+                 ; 0000 0094             }
+                 _0x74:
                  ; 0000 0095 
-                 ; 0000 0096 } // End of main()
-                 _0x79:
-000294 cfff      	RJMP _0x79
+                 ; 0000 0096             if(!L1_PWM)
+00028d b5e8      	IN   R30,0x28
+00028e b5f9      	IN   R31,0x28+1
+00028f 9730      	SBIW R30,0
+000290 f411      	BRNE _0x77
+                 ; 0000 0097             {
+                 ; 0000 0098                 L1_PORT = 0;
+000291 988c      	CBI  0x11,4
+                 ; 0000 0099             }
+                 ; 0000 009A             else
+000292 c001      	RJMP _0x7A
+                 _0x77:
+                 ; 0000 009B             {
+                 ; 0000 009C                 L1_PORT = 1;
+000293 9a8c      	SBI  0x11,4
+                 ; 0000 009D             }
+                 _0x7A:
+                 ; 0000 009E 
+                 ; 0000 009F             CHK_Light();      // 조명상태 전송
+000294 de12      	RCALL _CHK_Light
+                 ; 0000 00A0             Clear_Set();
+000295 de01      	RCALL _Clear_Set
+                 ; 0000 00A1 
+                 ; 0000 00A2         }
+                 ; 0000 00A3 
+                 ; 0000 00A4          // putString0(RS232_BUFF);
+                 ; 0000 00A5 
+                 ; 0000 00A6     } // End of while
+                 _0x6A:
+000296 cfcb      	RJMP _0x62
+                 ; 0000 00A7 
+                 ; 0000 00A8 } // End of main()
+                 _0x7D:
+000297 cfff      	RJMP _0x7D
                  ; .FEND
                  	#ifndef __SLEEP_DEFINED__
                  	#endif
@@ -2507,24 +2530,24 @@ D:\AVR_PGM\LC_Test\Release\List\main.asm(1156): warning: .cseg .db misalignment 
                  	.CSEG
                  _memset:
                  ; .FSTART _memset
-000295 93ba      	ST   -Y,R27
-000296 93aa      	ST   -Y,R26
-000297 81b9          ldd  r27,y+1
-000298 81a8          ld   r26,y
-000299 9610          adiw r26,0
-00029a f031          breq memset1
-00029b 81fc          ldd  r31,y+4
-00029c 81eb          ldd  r30,y+3
-00029d 816a          ldd  r22,y+2
+000298 93ba      	ST   -Y,R27
+000299 93aa      	ST   -Y,R26
+00029a 81b9          ldd  r27,y+1
+00029b 81a8          ld   r26,y
+00029c 9610          adiw r26,0
+00029d f031          breq memset1
+00029e 81fc          ldd  r31,y+4
+00029f 81eb          ldd  r30,y+3
+0002a0 816a          ldd  r22,y+2
                  memset0:
-00029e 9361          st   z+,r22
-00029f 9711          sbiw r26,1
-0002a0 f7e9          brne memset0
+0002a1 9361          st   z+,r22
+0002a2 9711          sbiw r26,1
+0002a3 f7e9          brne memset0
                  memset1:
-0002a1 81eb          ldd  r30,y+3
-0002a2 81fc          ldd  r31,y+4
-0002a3 9625      	ADIW R28,5
-0002a4 9508      	RET
+0002a4 81eb          ldd  r30,y+3
+0002a5 81fc          ldd  r31,y+4
+0002a6 9625      	ADIW R28,5
+0002a7 9508      	RET
                  ; .FEND
                  
                  	.CSEG
@@ -2558,125 +2581,125 @@ D:\AVR_PGM\LC_Test\Release\List\main.asm(1156): warning: .cseg .db misalignment 
                  	.CSEG
                  ;OPTIMIZER ADDED SUBROUTINE, CALLED 2 TIMES, CODE SIZE REDUCTION:1 WORDS
                  SUBOPT_0x0:
-0002a5 e0e0      	LDI  R30,LOW(0)
-0002a6 93e0 01a8 	STS  _Tmr_Cnt0,R30
-0002a8 93e0 019f 	STS  _NDX_232,R30
-0002aa 9508      	RET
+0002a8 e0e0      	LDI  R30,LOW(0)
+0002a9 93e0 01a8 	STS  _Tmr_Cnt0,R30
+0002ab 93e0 019f 	STS  _NDX_232,R30
+0002ad 9508      	RET
                  
                  ;OPTIMIZER ADDED SUBROUTINE, CALLED 2 TIMES, CODE SIZE REDUCTION:7 WORDS
                  SUBOPT_0x1:
-0002ab 01df      	MOVW R26,R30
-0002ac eee8      	LDI  R30,LOW(1000)
-0002ad e0f3      	LDI  R31,HIGH(1000)
-0002ae 940e 0307 	CALL __MODW21U
-0002b0 01df      	MOVW R26,R30
-0002b1 e6e4      	LDI  R30,LOW(100)
-0002b2 e0f0      	LDI  R31,HIGH(100)
-0002b3 940e 02f4 	CALL __DIVW21U
-0002b5 93e0 01aa 	STS  _d100,R30
-0002b7 9508      	RET
+0002ae 01df      	MOVW R26,R30
+0002af eee8      	LDI  R30,LOW(1000)
+0002b0 e0f3      	LDI  R31,HIGH(1000)
+0002b1 940e 030a 	CALL __MODW21U
+0002b3 01df      	MOVW R26,R30
+0002b4 e6e4      	LDI  R30,LOW(100)
+0002b5 e0f0      	LDI  R31,HIGH(100)
+0002b6 940e 02f7 	CALL __DIVW21U
+0002b8 93e0 01aa 	STS  _d100,R30
+0002ba 9508      	RET
                  
                  ;OPTIMIZER ADDED SUBROUTINE, CALLED 2 TIMES, CODE SIZE REDUCTION:7 WORDS
                  SUBOPT_0x2:
-0002b8 01df      	MOVW R26,R30
-0002b9 e6e4      	LDI  R30,LOW(100)
-0002ba e0f0      	LDI  R31,HIGH(100)
-0002bb 940e 0307 	CALL __MODW21U
-0002bd 01df      	MOVW R26,R30
-0002be e0ea      	LDI  R30,LOW(10)
-0002bf e0f0      	LDI  R31,HIGH(10)
-0002c0 940e 02f4 	CALL __DIVW21U
-0002c2 93e0 01ab 	STS  _d10,R30
-0002c4 9508      	RET
+0002bb 01df      	MOVW R26,R30
+0002bc e6e4      	LDI  R30,LOW(100)
+0002bd e0f0      	LDI  R31,HIGH(100)
+0002be 940e 030a 	CALL __MODW21U
+0002c0 01df      	MOVW R26,R30
+0002c1 e0ea      	LDI  R30,LOW(10)
+0002c2 e0f0      	LDI  R31,HIGH(10)
+0002c3 940e 02f7 	CALL __DIVW21U
+0002c5 93e0 01ab 	STS  _d10,R30
+0002c7 9508      	RET
                  
                  ;OPTIMIZER ADDED SUBROUTINE, CALLED 2 TIMES, CODE SIZE REDUCTION:6 WORDS
                  SUBOPT_0x3:
-0002c5 91e0 01aa 	LDS  R30,_d100
-0002c7 e6a0      	LDI  R26,LOW(_FND_Data)
-0002c8 e0b1      	LDI  R27,HIGH(_FND_Data)
-0002c9 e0f0      	LDI  R31,0
-0002ca 0fee      	LSL  R30
-0002cb 1fff      	ROL  R31
-0002cc 0fae      	ADD  R26,R30
-0002cd 1fbf      	ADC  R27,R31
-0002ce 91ec      	LD   R30,X
-0002cf bbeb      	OUT  0x1B,R30
-0002d0 9508      	RET
+0002c8 91e0 01aa 	LDS  R30,_d100
+0002ca e6a0      	LDI  R26,LOW(_FND_Data)
+0002cb e0b1      	LDI  R27,HIGH(_FND_Data)
+0002cc e0f0      	LDI  R31,0
+0002cd 0fee      	LSL  R30
+0002ce 1fff      	ROL  R31
+0002cf 0fae      	ADD  R26,R30
+0002d0 1fbf      	ADC  R27,R31
+0002d1 91ec      	LD   R30,X
+0002d2 bbeb      	OUT  0x1B,R30
+0002d3 9508      	RET
                  
                  ;OPTIMIZER ADDED SUBROUTINE, CALLED 2 TIMES, CODE SIZE REDUCTION:6 WORDS
                  SUBOPT_0x4:
-0002d1 91e0 01ab 	LDS  R30,_d10
-0002d3 e6a0      	LDI  R26,LOW(_FND_Data)
-0002d4 e0b1      	LDI  R27,HIGH(_FND_Data)
-0002d5 e0f0      	LDI  R31,0
-0002d6 0fee      	LSL  R30
-0002d7 1fff      	ROL  R31
-0002d8 0fae      	ADD  R26,R30
-0002d9 1fbf      	ADC  R27,R31
-0002da 91ec      	LD   R30,X
-0002db bbeb      	OUT  0x1B,R30
-0002dc 9508      	RET
+0002d4 91e0 01ab 	LDS  R30,_d10
+0002d6 e6a0      	LDI  R26,LOW(_FND_Data)
+0002d7 e0b1      	LDI  R27,HIGH(_FND_Data)
+0002d8 e0f0      	LDI  R31,0
+0002d9 0fee      	LSL  R30
+0002da 1fff      	ROL  R31
+0002db 0fae      	ADD  R26,R30
+0002dc 1fbf      	ADC  R27,R31
+0002dd 91ec      	LD   R30,X
+0002de bbeb      	OUT  0x1B,R30
+0002df 9508      	RET
                  
                  ;OPTIMIZER ADDED SUBROUTINE, CALLED 2 TIMES, CODE SIZE REDUCTION:6 WORDS
                  SUBOPT_0x5:
-0002dd 91e0 01ac 	LDS  R30,_d1
-0002df e6a0      	LDI  R26,LOW(_FND_Data)
-0002e0 e0b1      	LDI  R27,HIGH(_FND_Data)
-0002e1 e0f0      	LDI  R31,0
-0002e2 0fee      	LSL  R30
-0002e3 1fff      	ROL  R31
-0002e4 0fae      	ADD  R26,R30
-0002e5 1fbf      	ADC  R27,R31
-0002e6 91ec      	LD   R30,X
-0002e7 bbeb      	OUT  0x1B,R30
-0002e8 9508      	RET
+0002e0 91e0 01ac 	LDS  R30,_d1
+0002e2 e6a0      	LDI  R26,LOW(_FND_Data)
+0002e3 e0b1      	LDI  R27,HIGH(_FND_Data)
+0002e4 e0f0      	LDI  R31,0
+0002e5 0fee      	LSL  R30
+0002e6 1fff      	ROL  R31
+0002e7 0fae      	ADD  R26,R30
+0002e8 1fbf      	ADC  R27,R31
+0002e9 91ec      	LD   R30,X
+0002ea bbeb      	OUT  0x1B,R30
+0002eb 9508      	RET
                  
                  ;OPTIMIZER ADDED SUBROUTINE, CALLED 2 TIMES, CODE SIZE REDUCTION:5 WORDS
                  SUBOPT_0x6:
                 +
-0002e9 91e0 0199+LDS R30 , _RS232_BUFF + ( 4 )
+0002ec 91e0 0199+LDS R30 , _RS232_BUFF + ( 4 )
                  	__GETB1MN _RS232_BUFF,4
-0002eb e0f0      	LDI  R31,0
-0002ec bdfb      	OUT  0x2A+1,R31
-0002ed bdea      	OUT  0x2A,R30
+0002ee e0f0      	LDI  R31,0
+0002ef bdfb      	OUT  0x2A+1,R31
+0002f0 bdea      	OUT  0x2A,R30
                 +
-0002ee 91e0 019a+LDS R30 , _RS232_BUFF + ( 5 )
+0002f1 91e0 019a+LDS R30 , _RS232_BUFF + ( 5 )
                  	__GETB1MN _RS232_BUFF,5
-0002f0 e0f0      	LDI  R31,0
-0002f1 bdf9      	OUT  0x28+1,R31
-0002f2 bde8      	OUT  0x28,R30
-0002f3 9508      	RET
+0002f3 e0f0      	LDI  R31,0
+0002f4 bdf9      	OUT  0x28+1,R31
+0002f5 bde8      	OUT  0x28,R30
+0002f6 9508      	RET
                  
                  
                  	.CSEG
                  __DIVW21U:
-0002f4 2400      	CLR  R0
-0002f5 2411      	CLR  R1
-0002f6 e190      	LDI  R25,16
+0002f7 2400      	CLR  R0
+0002f8 2411      	CLR  R1
+0002f9 e190      	LDI  R25,16
                  __DIVW21U1:
-0002f7 0faa      	LSL  R26
-0002f8 1fbb      	ROL  R27
-0002f9 1c00      	ROL  R0
-0002fa 1c11      	ROL  R1
-0002fb 1a0e      	SUB  R0,R30
-0002fc 0a1f      	SBC  R1,R31
-0002fd f418      	BRCC __DIVW21U2
-0002fe 0e0e      	ADD  R0,R30
-0002ff 1e1f      	ADC  R1,R31
-000300 c001      	RJMP __DIVW21U3
+0002fa 0faa      	LSL  R26
+0002fb 1fbb      	ROL  R27
+0002fc 1c00      	ROL  R0
+0002fd 1c11      	ROL  R1
+0002fe 1a0e      	SUB  R0,R30
+0002ff 0a1f      	SBC  R1,R31
+000300 f418      	BRCC __DIVW21U2
+000301 0e0e      	ADD  R0,R30
+000302 1e1f      	ADC  R1,R31
+000303 c001      	RJMP __DIVW21U3
                  __DIVW21U2:
-000301 60a1      	SBR  R26,1
+000304 60a1      	SBR  R26,1
                  __DIVW21U3:
-000302 959a      	DEC  R25
-000303 f799      	BRNE __DIVW21U1
-000304 01fd      	MOVW R30,R26
-000305 01d0      	MOVW R26,R0
-000306 9508      	RET
+000305 959a      	DEC  R25
+000306 f799      	BRNE __DIVW21U1
+000307 01fd      	MOVW R30,R26
+000308 01d0      	MOVW R26,R0
+000309 9508      	RET
                  
                  __MODW21U:
-000307 dfec      	RCALL __DIVW21U
-000308 01fd      	MOVW R30,R26
-000309 9508      	RET
+00030a dfec      	RCALL __DIVW21U
+00030b 01fd      	MOVW R30,R26
+00030c 9508      	RET
                  
                  ;END OF CODE MARKER
                  __END_OF_CODE:
@@ -2719,8 +2742,8 @@ in    :  46 inc   :   1 jmp   :  22 ld    :  30 ldd   :  14 ldi   :  89
 lds   :  17 lpm   :   7 lsl   :   4 lsr   :   0 mov   :  10 movw  :  21 
 mul   :   0 muls  :   0 mulsu :   0 neg   :   0 nop   :   0 or    :   0 
 ori   :   1 out   :  66 pop   :   0 push  :   0 rcall :  17 ret   :  15 
-reti  :   3 rjmp  :  36 rol   :   6 ror   :   0 sbc   :   1 sbci  :   2 
-sbi   :  12 sbic  :   3 sbis  :   5 sbiw  :  12 sbr   :   1 sbrc  :   0 
+reti  :   3 rjmp  :  38 rol   :   6 ror   :   0 sbc   :   1 sbci  :   2 
+sbi   :  13 sbic  :   3 sbis  :   5 sbiw  :  12 sbr   :   1 sbrc  :   0 
 sbrs  :   3 sec   :   0 seh   :   0 sei   :   1 sen   :   0 ser   :   0 
 ses   :   0 set   :   2 sev   :   0 sez   :   0 sleep :   0 spm   :   0 
 st    :  50 std   :   1 sts   :   9 sub   :   1 subi  :   6 swap  :   0 
@@ -2730,7 +2753,7 @@ Instructions used: 53 out of 116 (45.7%)
 ATmega16 memory use summary [bytes]:
 Segment   Begin    End      Code   Data   Used    Size   Use%
 ---------------------------------------------------------------
-[.cseg] 0x000000 0x000614   1428    128   1556   16384   9.5%
+[.cseg] 0x000000 0x00061a   1434    128   1562   16384   9.5%
 [.dseg] 0x000060 0x0001ad      0     77     77    1024   7.5%
 [.eseg] 0x000000 0x000000      0      0      0     512   0.0%
 

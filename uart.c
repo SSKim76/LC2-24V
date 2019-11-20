@@ -60,7 +60,7 @@ interrupt [USART_RXC] void usart_rx_isr(void)
     {
         UART0_DATA=data;
         //putchar0(UART0_DATA);
-        PORTC.6 = 0xff;
+        //PORTC.6 = 0xff;    ?? 19.11.19 주석처리
 
         if(UART0_DATA == 0x1B)
         {

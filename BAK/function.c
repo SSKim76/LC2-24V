@@ -1,0 +1,89 @@
+/*********************************************************************************************
+       unsigned char EEPROM_read(unsigned int uiAddress)
+
+***********************************************************************************************/
+    unsigned char EEPROM_read(unsigned int uiAddress)
+    {
+            /* Wait for completion of previous write */
+            while(EECR & (1<<EEWE)) ;
+
+            /* Set up address register */
+            EEAR = uiAddress;
+
+            /* Start eeprom read by writing EERE */
+            EECR |= (1<<EERE);
+
+            /* Return data from data register */
+            return EEDR;
+    }
+
+
+
+/*********************************************************************************************
+      void EEPROM_write(unsigned int uiAddress, unsigned char ucData)
+
+***********************************************************************************************/
+    void EEPROM_write(unsigned int uiAddress, unsigned char ucData)
+    {
+            /* Wait for completion of previous write */
+            while(EECR & (1<<EEWE));
+
+            /* Set up address and data registers */
+            EEAR = uiAddress;
+            EEDR = ucData;
+
+            /* Write logical one to EEMWE */
+            EECR |= (1<<EEMWE);
+
+            /* Start eeprom write by setting EEWE */
+            EECR |= (1<<EEWE);
+    }
+
+
+    void EEPROM_INIT()
+    {
+        unsigned char cnt = 0;
+        for(cnt = 0; cnt <= (sizeof(EEPROM_Init_Data)/sizeof(unsigned char)); cnt++)
+        {
+            EEPROM_write(EEPROM_Init_Addr++, EEPROM_Init_Data[cnt]);
+        }
+    }
+
+
+    void PWM_WRITE(unsigned char Light)
+    {
+        if(Light)
+        {
+            EEPROM_write(L1_Addr, L1_PWM);
+        }
+        else
+        {
+            EEPROM_write(L0_Addr, L0_PWM);
+            //eeprom_write_byte(L0_Addr, L0_PWM);
+        }
+    }
+
+
+    void PWM_UPDATE(unsigned char Light)
+    {
+        unsigned char pwm_value;
+
+        if(Light)
+        {
+            pwm_value =  EEPROM_read(L1_Addr);
+            if(pwm_value != L1_PWM)
+            {
+                EEPROM_write(L1_Addr, L1_PWM);
+            }
+        }
+        else
+        {
+            pwm_value =  EEPROM_read(L0_Addr);
+            if(pwm_value != L0_PWM)
+            {
+                EEPROM_write(L0_Addr, L0_PWM);
+            }
+            //eeprom_write_byte(L0_Addr, L0_PWM);
+        }
+    }
+  //EEPROM_write(PWM_Addr, PWM_On_CNT);

@@ -30,11 +30,11 @@ unsigned int        L1_Addr                 =   0x0030;
 
 
 //////////////////////////////////////  RS-232C  //////////////////////////////////////
-char	         UART0_DATA		      =	0;
-char			     RS232_BUFF[10];
-unsigned char  NDX_232 		        =	   0;
-bit 			     RS232_FLAG  	      =    0;
-bit 			     RS_Finish_Flag     =     0;
-char           rtnMsg[8]          =    {0x1B, 0x02, 0x52, 0x00, 0x00, 0x00, 0x03, 0x0D};
-unsigned char  Tmr_Cnt0           =     0;
-unsigned char  RS232_RS_Limit     =     30;      // ms
+char	         UART0_DATA		    =	0;
+char			 RS232_BUFF[10];
+unsigned char    NDX_232 		    =	0;
+bit 			 RS232_FLAG  	    =   0;
+bit 			 RS_Finish_Flag     =   0;
+char             rtnMsg[8]          =   {0x1B, 0x02, 0x52, 0x00, 0x00, 0x00, 0x03, 0x0D};
+unsigned char    Tmr_Cnt0           =   0;
+unsigned char    RS232_RS_Limit     =   30;      // ms

@@ -83,7 +83,7 @@ void main(void)
 
     L0_PWM = EEPROM_read(L0_Addr);
     L1_PWM = EEPROM_read(L1_Addr);
-
+/*
    if(!L0_PWM)
     {
         L0_PORT = 0;
@@ -96,7 +96,7 @@ void main(void)
 
     //L0_PWM  =   123;
     //L1_PWM  =   215;
-
+*/
     while (1)
     {
 
@@ -136,6 +136,24 @@ void main(void)
                     PWM_UPDATE(1);      // L1 EEPROM Update
                     // CHK_Light();      // 조명상태 전송
                     break;
+            }
+
+            if(!L0_PWM)
+            {
+                L0_PORT = 0;
+            }
+            else
+            {
+                L0_PORT = 1;
+            }
+
+            if(!L1_PWM)
+            {
+                L1_PORT = 0;
+            }
+            else
+            {
+                L1_PORT = 1;
             }
 
             CHK_Light();      // 조명상태 전송

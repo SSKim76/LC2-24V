@@ -1629,7 +1629,7 @@ _ext_int0_isr:
 	IN   R30,0x2A
 	IN   R31,0x2A+1
 	ADIW R30,1
-	RJMP _0x7B
+	RJMP _0x7F
 ;        }
 ;        else
 _0x16:
@@ -1638,7 +1638,7 @@ _0x16:
 	IN   R30,0x2A
 	IN   R31,0x2A+1
 	SBIW R30,1
-_0x7B:
+_0x7F:
 	OUT  0x2A+1,R31
 	OUT  0x2A,R30
 ;        }
@@ -1662,7 +1662,7 @@ _0x18:
 _0x1B:
 ;
 ;    }
-	RJMP _0x80
+	RJMP _0x84
 ; .FEND
 ;
 ;    // External Interrupt 1 service routine
@@ -1683,7 +1683,7 @@ _ext_int1_isr:
 	IN   R30,0x28
 	IN   R31,0x28+1
 	ADIW R30,1
-	RJMP _0x7C
+	RJMP _0x80
 ;            }
 ;            else
 _0x1E:
@@ -1692,7 +1692,7 @@ _0x1E:
 	IN   R30,0x28
 	IN   R31,0x28+1
 	SBIW R30,1
-_0x7C:
+_0x80:
 	OUT  0x28+1,R31
 	OUT  0x28,R30
 ;            }
@@ -1715,7 +1715,7 @@ _0x20:
 ;            }
 _0x23:
 ;     }
-_0x80:
+_0x84:
 	LD   R30,Y+
 	OUT  SREG,R30
 	LD   R31,Y+
@@ -1818,7 +1818,7 @@ _0x27:
 ;                d1 = L1_PWM % 10;
 	IN   R30,0x28
 	IN   R31,0x28+1
-	RJMP _0x7D
+	RJMP _0x81
 ;            }
 ;            else
 _0x35:
@@ -1834,7 +1834,7 @@ _0x35:
 ;                d1 = L0_PWM % 10;
 	IN   R30,0x2A
 	IN   R31,0x2A+1
-_0x7D:
+_0x81:
 	MOVW R26,R30
 	LDI  R30,LOW(10)
 	LDI  R31,HIGH(10)
@@ -2043,13 +2043,12 @@ _usart_rx_isr:
 ;        UART0_DATA=data;
 	STS  _UART0_DATA,R16
 ;        //putchar0(UART0_DATA);
-;        PORTC.6 = 0xff;
-	SBI  0x15,6
+;        //PORTC.6 = 0xff;    ?? 19.11.19 주석처리
 ;
 ;        if(UART0_DATA == 0x1B)
 	LDS  R26,_UART0_DATA
 	CPI  R26,LOW(0x1B)
-	BRNE _0x58
+	BRNE _0x56
 ;        {
 ;            Tmr_Cnt0 = 0;
 	CALL SUBOPT_0x0
@@ -2060,29 +2059,29 @@ _usart_rx_isr:
 ;        }
 ;
 ;        if(RS232_FLAG)
-_0x58:
+_0x56:
 	SBRS R2,0
-	RJMP _0x59
+	RJMP _0x57
 ;        {
 ;            //PORTC.6 = 0xff;
 ;            //if(UART0_DATA == 0x02)
 ;            if(UART0_DATA == 0x1B)
 	LDS  R26,_UART0_DATA
 	CPI  R26,LOW(0x1B)
-	BRNE _0x5A
+	BRNE _0x58
 ;            {
 ;                RS232_BUFF[NDX_232] =   UART0_DATA;
 	LDS  R30,_NDX_232
-	RJMP _0x7E
+	RJMP _0x82
 ;            }
 ;            else
-_0x5A:
+_0x58:
 ;            {
 ;                RS232_BUFF[++NDX_232] =   UART0_DATA;
 	LDS  R30,_NDX_232
 	SUBI R30,-LOW(1)
 	STS  _NDX_232,R30
-_0x7E:
+_0x82:
 	LDI  R31,0
 	SUBI R30,LOW(-_RS232_BUFF)
 	SBCI R31,HIGH(-_RS232_BUFF)
@@ -2094,20 +2093,20 @@ _0x7E:
 ;            //if(UART0_DATA ==  0x03 && NDX_232 == 4)
 ;            if((UART0_DATA ==  0x0D && NDX_232 == 5) || (UART0_DATA == 0x0D && NDX_232 == 7))
 	CPI  R26,LOW(0xD)
-	BRNE _0x5D
+	BRNE _0x5B
 	LDS  R26,_NDX_232
 	CPI  R26,LOW(0x5)
-	BREQ _0x5F
-_0x5D:
+	BREQ _0x5D
+_0x5B:
 	LDS  R26,_UART0_DATA
 	CPI  R26,LOW(0xD)
-	BRNE _0x60
+	BRNE _0x5E
 	LDS  R26,_NDX_232
 	CPI  R26,LOW(0x7)
-	BREQ _0x5F
-_0x60:
-	RJMP _0x5C
-_0x5F:
+	BREQ _0x5D
+_0x5E:
+	RJMP _0x5A
+_0x5D:
 ;            {
 ;                RS_Finish_Flag = 1;
 	SET
@@ -2117,10 +2116,10 @@ _0x5F:
 ;            }	        // END of if(상태요청, 또는 조명 상태변경 일 경우)
 ;
 ;        }
-_0x5C:
+_0x5A:
 ;
 ;        UART0_DATA = 0;
-_0x59:
+_0x57:
 	LDI  R30,LOW(0)
 	STS  _UART0_DATA,R30
 ;
@@ -2302,14 +2301,14 @@ _main:
 	MOVW R26,R8
 	RCALL _EEPROM_read
 	CPI  R30,LOW(0xFF)
-	BRNE _0x63
+	BRNE _0x61
 ; 0000 0050     {
 ; 0000 0051         EEPROM_INIT();
 	RCALL _EEPROM_INIT
 ; 0000 0052     }
 ; 0000 0053 
 ; 0000 0054     L0_PWM = EEPROM_read(L0_Addr);
-_0x63:
+_0x61:
 	MOVW R26,R10
 	RCALL _EEPROM_read
 	LDI  R31,0
@@ -2321,68 +2320,56 @@ _0x63:
 	LDI  R31,0
 	OUT  0x28+1,R31
 	OUT  0x28,R30
-; 0000 0056 
+; 0000 0056 /*
 ; 0000 0057    if(!L0_PWM)
-	IN   R30,0x2A
-	IN   R31,0x2A+1
-	SBIW R30,0
-	BRNE _0x64
 ; 0000 0058     {
 ; 0000 0059         L0_PORT = 0;
-	CBI  0x11,5
 ; 0000 005A     }
 ; 0000 005B 
 ; 0000 005C     if(!L1_PWM)
-_0x64:
-	IN   R30,0x28
-	IN   R31,0x28+1
-	SBIW R30,0
-	BRNE _0x67
 ; 0000 005D     {
 ; 0000 005E         L1_PORT = 0;
-	CBI  0x11,4
 ; 0000 005F     }
 ; 0000 0060 
 ; 0000 0061     //L0_PWM  =   123;
 ; 0000 0062     //L1_PWM  =   215;
-; 0000 0063 
+; 0000 0063 */
 ; 0000 0064     while (1)
-_0x67:
-_0x6A:
+_0x62:
 ; 0000 0065     {
 ; 0000 0066 
 ; 0000 0067         // Place your code here
 ; 0000 0068         if(SET_L0 || SET_L1)
 	SBIC 0x10,6
-	RJMP _0x6E
+	RJMP _0x66
 	SBIS 0x10,7
-	RJMP _0x6D
-_0x6E:
+	RJMP _0x65
+_0x66:
 ; 0000 0069         {
 ; 0000 006A             if(SET_L0)
 	SBIS 0x10,6
-	RJMP _0x70
+	RJMP _0x68
 ; 0000 006B             {
 ; 0000 006C                 PWM_UPDATE(0);
 	LDI  R26,LOW(0)
-	RJMP _0x7F
+	RJMP _0x83
 ; 0000 006D                  //PWM_WRITE(0);
 ; 0000 006E             }
 ; 0000 006F             else
-_0x70:
+_0x68:
 ; 0000 0070             {
 ; 0000 0071                 PWM_UPDATE(1);
 	LDI  R26,LOW(1)
-_0x7F:
+_0x83:
 	RCALL _PWM_UPDATE
 ; 0000 0072                 //PWM_WRITE(1);
 ; 0000 0073             }
 ; 0000 0074         }
 ; 0000 0075 
 ; 0000 0076         if(RS_Finish_Flag)
-_0x6D:
+_0x65:
 	SBRS R2,1
-	RJMP _0x72
+	RJMP _0x6A
 ; 0000 0077         {
 ; 0000 0078             switch (RS232_BUFF[2])
 	__GETB1MN _RS232_BUFF,2
@@ -2392,7 +2379,7 @@ _0x6D:
 	CPI  R30,LOW(0x53)
 	LDI  R26,HIGH(0x53)
 	CPC  R31,R26
-	BREQ _0x75
+	BREQ _0x6D
 ; 0000 007B                    // CHK_Light();
 ; 0000 007C                     break;
 ; 0000 007D 
@@ -2400,20 +2387,20 @@ _0x6D:
 	CPI  R30,LOW(0x43)
 	LDI  R26,HIGH(0x43)
 	CPC  R31,R26
-	BRNE _0x77
+	BRNE _0x6F
 ; 0000 007F                     L0_PWM = RS232_BUFF[4];
 	CALL SUBOPT_0x6
 ; 0000 0080                     L1_PWM = RS232_BUFF[5];
 ; 0000 0081                    // CHK_Light();      // 조명상태 전송
 ; 0000 0082                     break;
-	RJMP _0x75
+	RJMP _0x6D
 ; 0000 0083 
 ; 0000 0084                  case 0x57 :    // 조명상태 저장
-_0x77:
+_0x6F:
 	CPI  R30,LOW(0x57)
 	LDI  R26,HIGH(0x57)
 	CPC  R31,R26
-	BRNE _0x75
+	BRNE _0x6D
 ; 0000 0085                     L0_PWM = RS232_BUFF[4];
 	CALL SUBOPT_0x6
 ; 0000 0086                     L1_PWM = RS232_BUFF[5];
@@ -2426,24 +2413,60 @@ _0x77:
 ; 0000 0089                     // CHK_Light();      // 조명상태 전송
 ; 0000 008A                     break;
 ; 0000 008B             }
-_0x75:
+_0x6D:
 ; 0000 008C 
-; 0000 008D             CHK_Light();      // 조명상태 전송
-	RCALL _CHK_Light
-; 0000 008E             Clear_Set();
-	RCALL _Clear_Set
-; 0000 008F 
-; 0000 0090         }
-; 0000 0091 
-; 0000 0092          // putString0(RS232_BUFF);
-; 0000 0093 
-; 0000 0094     } // End of while
-_0x72:
-	RJMP _0x6A
+; 0000 008D             if(!L0_PWM)
+	IN   R30,0x2A
+	IN   R31,0x2A+1
+	SBIW R30,0
+	BRNE _0x71
+; 0000 008E             {
+; 0000 008F                 L0_PORT = 0;
+	CBI  0x11,5
+; 0000 0090             }
+; 0000 0091             else
+	RJMP _0x74
+_0x71:
+; 0000 0092             {
+; 0000 0093                 L0_PORT = 1;
+	SBI  0x11,5
+; 0000 0094             }
+_0x74:
 ; 0000 0095 
-; 0000 0096 } // End of main()
-_0x79:
-	RJMP _0x79
+; 0000 0096             if(!L1_PWM)
+	IN   R30,0x28
+	IN   R31,0x28+1
+	SBIW R30,0
+	BRNE _0x77
+; 0000 0097             {
+; 0000 0098                 L1_PORT = 0;
+	CBI  0x11,4
+; 0000 0099             }
+; 0000 009A             else
+	RJMP _0x7A
+_0x77:
+; 0000 009B             {
+; 0000 009C                 L1_PORT = 1;
+	SBI  0x11,4
+; 0000 009D             }
+_0x7A:
+; 0000 009E 
+; 0000 009F             CHK_Light();      // 조명상태 전송
+	RCALL _CHK_Light
+; 0000 00A0             Clear_Set();
+	RCALL _Clear_Set
+; 0000 00A1 
+; 0000 00A2         }
+; 0000 00A3 
+; 0000 00A4          // putString0(RS232_BUFF);
+; 0000 00A5 
+; 0000 00A6     } // End of while
+_0x6A:
+	RJMP _0x62
+; 0000 00A7 
+; 0000 00A8 } // End of main()
+_0x7D:
+	RJMP _0x7D
 ; .FEND
 	#ifndef __SLEEP_DEFINED__
 	#define __SLEEP_DEFINED__

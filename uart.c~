@@ -59,8 +59,9 @@ interrupt [USART_RXC] void usart_rx_isr(void)
     if ((status & (FRAMING_ERROR | PARITY_ERROR | DATA_OVERRUN))==0)
     {
         UART0_DATA=data;
-    putchar0(UART0_DATA);
-    PORTC.6 = 0xff;
+        //putchar0(UART0_DATA);
+        //PORTC.6 = 0xff;    ?? 19.11.19 ¡÷ºÆ√≥
+
         if(UART0_DATA == 0x1B)
         {
             Tmr_Cnt0 = 0;

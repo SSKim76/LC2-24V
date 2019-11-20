@@ -42,6 +42,6 @@ ext_int0_isr                                                                    
 ext_int1_isr                                                                      0x0011F     27
 timer2_ovf_isr                                                                    0x0013A    131
 putString0                                                                        0x001BD     21
-usart_rx_isr                                                                      0x001D2     71
-main                                                                              0x00219    124
-memset                                                                            0x00295     16
+usart_rx_isr                                                                      0x001D2     70
+main                                                                              0x00218    128
+memset                                                                            0x00298     16
