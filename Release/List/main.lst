@@ -1,16 +1,16 @@
 
-AVRASM ver. 2.1.30  D:\AVR_PGM\LC_Test\Release\List\main.asm Tue Nov 19 17:21:31 2019
+AVRASM ver. 2.1.30  D:\[Project]\2018.08 - JST-LC2-24V_한국세라믹기술원\1. Source_Code\Release\List\main.asm Tue Nov 26 11:47:20 2019
 
-D:\AVR_PGM\LC_Test\Release\List\main.asm(1088): warning: Register r5 already defined by the .DEF directive
-D:\AVR_PGM\LC_Test\Release\List\main.asm(1089): warning: Register r6 already defined by the .DEF directive
-D:\AVR_PGM\LC_Test\Release\List\main.asm(1090): warning: Register r7 already defined by the .DEF directive
-D:\AVR_PGM\LC_Test\Release\List\main.asm(1091): warning: Register r4 already defined by the .DEF directive
-D:\AVR_PGM\LC_Test\Release\List\main.asm(1092): warning: Register r8 already defined by the .DEF directive
-D:\AVR_PGM\LC_Test\Release\List\main.asm(1093): warning: Register r9 already defined by the .DEF directive
-D:\AVR_PGM\LC_Test\Release\List\main.asm(1094): warning: Register r10 already defined by the .DEF directive
-D:\AVR_PGM\LC_Test\Release\List\main.asm(1095): warning: Register r11 already defined by the .DEF directive
-D:\AVR_PGM\LC_Test\Release\List\main.asm(1096): warning: Register r12 already defined by the .DEF directive
-D:\AVR_PGM\LC_Test\Release\List\main.asm(1097): warning: Register r13 already defined by the .DEF directive
+D:\[Project]\2018.08 - JST-LC2-24V_한국세라믹기술원\1. Source_Code\Release\List\main.asm(1088): warning: Register r5 already defined by the .DEF directive
+D:\[Project]\2018.08 - JST-LC2-24V_한국세라믹기술원\1. Source_Code\Release\List\main.asm(1089): warning: Register r6 already defined by the .DEF directive
+D:\[Project]\2018.08 - JST-LC2-24V_한국세라믹기술원\1. Source_Code\Release\List\main.asm(1090): warning: Register r7 already defined by the .DEF directive
+D:\[Project]\2018.08 - JST-LC2-24V_한국세라믹기술원\1. Source_Code\Release\List\main.asm(1091): warning: Register r4 already defined by the .DEF directive
+D:\[Project]\2018.08 - JST-LC2-24V_한국세라믹기술원\1. Source_Code\Release\List\main.asm(1092): warning: Register r8 already defined by the .DEF directive
+D:\[Project]\2018.08 - JST-LC2-24V_한국세라믹기술원\1. Source_Code\Release\List\main.asm(1093): warning: Register r9 already defined by the .DEF directive
+D:\[Project]\2018.08 - JST-LC2-24V_한국세라믹기술원\1. Source_Code\Release\List\main.asm(1094): warning: Register r10 already defined by the .DEF directive
+D:\[Project]\2018.08 - JST-LC2-24V_한국세라믹기술원\1. Source_Code\Release\List\main.asm(1095): warning: Register r11 already defined by the .DEF directive
+D:\[Project]\2018.08 - JST-LC2-24V_한국세라믹기술원\1. Source_Code\Release\List\main.asm(1096): warning: Register r12 already defined by the .DEF directive
+D:\[Project]\2018.08 - JST-LC2-24V_한국세라믹기술원\1. Source_Code\Release\List\main.asm(1097): warning: Register r13 already defined by the .DEF directive
                  
                  
                  ;CodeVisionAVR C Compiler V3.12 Advanced
@@ -1180,7 +1180,7 @@ D:\AVR_PGM\LC_Test\Release\List\main.asm(1097): warning: Register r13 already de
 000046 005e
 000047 0079
 000048 0071      	.DB  0x39,0x0,0x5E,0x0,0x79,0x0,0x71,0x0
-D:\AVR_PGM\LC_Test\Release\List\main.asm(1149): warning: .cseg .db misalignment - padding zero byte
+D:\[Project]\2018.08 - JST-LC2-24V_한국세라믹기술원\1. Source_Code\Release\List\main.asm(1149): warning: .cseg .db misalignment - padding zero byte
 000049 0073      	.DB  0x73
                  _0x4:
 00004a 7250
@@ -1190,7 +1190,7 @@ D:\AVR_PGM\LC_Test\Release\List\main.asm(1149): warning: .cseg .db misalignment 
 00004e 6556
 00004f 2072
 000050 3052
-D:\AVR_PGM\LC_Test\Release\List\main.asm(1152): warning: .cseg .db misalignment - padding zero byte
+D:\[Project]\2018.08 - JST-LC2-24V_한국세라믹기술원\1. Source_Code\Release\List\main.asm(1152): warning: .cseg .db misalignment - padding zero byte
 000051 0030      	.DB  0x56,0x65,0x72,0x20,0x52,0x30,0x30
                  _0x5:
 000052 021b
@@ -1198,7 +1198,7 @@ D:\AVR_PGM\LC_Test\Release\List\main.asm(1152): warning: .cseg .db misalignment 
 000054 0000
 000055 0d03      	.DB  0x1B,0x2,0x52,0x0,0x0,0x0,0x3,0xD
                  _0x6:
-D:\AVR_PGM\LC_Test\Release\List\main.asm(1156): warning: .cseg .db misalignment - padding zero byte
+D:\[Project]\2018.08 - JST-LC2-24V_한국세라믹기술원\1. Source_Code\Release\List\main.asm(1156): warning: .cseg .db misalignment - padding zero byte
 000056 001e      	.DB  0x1E
                  
                  __GLOBAL_INI_TBL:
@@ -2224,6 +2224,7 @@ D:\AVR_PGM\LC_Test\Release\List\main.asm(1156): warning: .cseg .db misalignment 
 000224 e0e0      	LDI  R30,LOW(0)
 000225 bbe2      	OUT  0x12,R30
                  ;
+                 ;
                  ;    // Timer/Counter 0 initialization
                  ;    // Clock source: System Clock
                  ;    // Clock value: Timer 0 Stopped
@@ -2235,6 +2236,8 @@ D:\AVR_PGM\LC_Test\Release\List\main.asm(1156): warning: .cseg .db misalignment 
 000227 bfe2      	OUT  0x32,R30
                  ;        OCR0=0x00;
 000228 bfec      	OUT  0x3C,R30
+                 ;
+                 ;/* 2019년 11월 26일 PWM Timer Period 1.024ms -> 0.016ms 변경, 아래 내용은 기존 1.024ms 임
                  ;
                  ;     // Timer/Counter 1 initialization
                  ;    // Clock source: System Clock
@@ -2253,10 +2256,45 @@ D:\AVR_PGM\LC_Test\Release\List\main.asm(1156): warning: .cseg .db misalignment 
                  ;    // Compare A Match Interrupt: Off
                  ;    // Compare B Match Interrupt: Off
                  ;    TCCR1A=(1<<COM1A1) | (0<<COM1A0) | (1<<COM1B1) | (0<<COM1B0) | (0<<WGM11) | (1<<WGM10);
+                 ;    TCCR1B=(0<<ICNC1) | (1<<ICES1) | (0<<WGM13) | (1<<WGM12) | (0<<CS12) | (1<<CS11) | (1<<CS10);
+                 ;    TCNT1H=0x00;
+                 ;    TCNT1L=0x00;
+                 ;    ICR1H=0x00;
+                 ;    ICR1L=0x00;
+                 ;    OCR1AH=0x00;
+                 ;    OCR1AL=0x00;
+                 ;    OCR1BH=0x00;
+                 ;    OCR1BL=0x00;
+                 ;
+                 ;    여기까지 2019년 11월 26일 PWM Timer Period 1.024ms -> 0.016ms 변경을 위해 주석처리
+                 ;
+                 ;*/
+                 ;
+                 ;
+                 ;
+                 ;// 2019년 11월 26일 PWM Timer Period 1.024ms -> 0.016ms 변경
+                 ;
+                 ;    // Timer/Counter 1 initialization
+                 ;    // Clock source: System Clock
+                 ;    // Clock value: 16000.000 kHz
+                 ;    // Mode: Fast PWM top=0x00FF
+                 ;    // OC1A output: Non-Inverted PWM
+                 ;    // OC1B output: Non-Inverted PWM
+                 ;    // Noise Canceler: Off
+                 ;    // Input Capture on Rising Edge
+                 ;    // Timer Period: 0.016 ms
+                 ;    // Output Pulse(s):
+                 ;    // OC1A Period: 0.016 ms Width: 0 us
+                 ;    // OC1B Period: 0.016 ms Width: 0 us
+                 ;    // Timer1 Overflow Interrupt: Off
+                 ;    // Input Capture Interrupt: Off
+                 ;    // Compare A Match Interrupt: Off
+                 ;    // Compare B Match Interrupt: Off
+                 ;    TCCR1A=(1<<COM1A1) | (0<<COM1A0) | (1<<COM1B1) | (0<<COM1B0) | (0<<WGM11) | (1<<WGM10);
 000229 eae1      	LDI  R30,LOW(161)
 00022a bdef      	OUT  0x2F,R30
-                 ;    TCCR1B=(0<<ICNC1) | (1<<ICES1) | (0<<WGM13) | (1<<WGM12) | (0<<CS12) | (1<<CS11) | (1<<CS10);
-00022b e4eb      	LDI  R30,LOW(75)
+                 ;    TCCR1B=(0<<ICNC1) | (1<<ICES1) | (0<<WGM13) | (1<<WGM12) | (0<<CS12) | (0<<CS11) | (1<<CS10);
+00022b e4e9      	LDI  R30,LOW(73)
 00022c bdee      	OUT  0x2E,R30
                  ;    TCNT1H=0x00;
 00022d e0e0      	LDI  R30,LOW(0)
@@ -2275,6 +2313,9 @@ D:\AVR_PGM\LC_Test\Release\List\main.asm(1156): warning: .cseg .db misalignment 
 000234 bde9      	OUT  0x29,R30
                  ;    OCR1BL=0x00;
 000235 bde8      	OUT  0x28,R30
+                 ;
+                 ;// 여기까지 추가된 내용
+                 ;
                  ;
                  ;    // Timer/Counter 2 initialization
                  ;    // Clock source: System Clock
@@ -2299,6 +2340,9 @@ D:\AVR_PGM\LC_Test\Release\List\main.asm(1156): warning: .cseg .db misalignment 
                  ;    TIMSK=(0<<OCIE2) | (1<<TOIE2) | (0<<TICIE1) | (0<<OCIE1A) | (0<<OCIE1B) | (0<<TOIE1) | (0<<OCIE0) | (0<<TOIE0);
 00023d e4e0      	LDI  R30,LOW(64)
 00023e bfe9      	OUT  0x39,R30
+                 ;
+                 ;
+                 ;
                  ;
                  ;    // External Interrupt(s) initialization
                  ;    // INT0: On
@@ -2373,152 +2417,142 @@ D:\AVR_PGM\LC_Test\Release\List\main.asm(1156): warning: .cseg .db misalignment 
 000260 bdf9      	OUT  0x28+1,R31
 000261 bde8      	OUT  0x28,R30
                  ; 0000 0056 /*
-                 ; 0000 0057    if(!L0_PWM)
-                 ; 0000 0058     {
-                 ; 0000 0059         L0_PORT = 0;
-                 ; 0000 005A     }
-                 ; 0000 005B 
-                 ; 0000 005C     if(!L1_PWM)
-                 ; 0000 005D     {
-                 ; 0000 005E         L1_PORT = 0;
-                 ; 0000 005F     }
-                 ; 0000 0060 
-                 ; 0000 0061     //L0_PWM  =   123;
-                 ; 0000 0062     //L1_PWM  =   215;
-                 ; 0000 0063 */
-                 ; 0000 0064     while (1)
+                 ; 0000 0057     //L0_PWM  =   123;
+                 ; 0000 0058     //L1_PWM  =   215;
+                 ; 0000 0059 */
+                 ; 0000 005A     while (1)
                  _0x62:
-                 ; 0000 0065     {
-                 ; 0000 0066 
-                 ; 0000 0067         // Place your code here
-                 ; 0000 0068         if(SET_L0 || SET_L1)
+                 ; 0000 005B     {
+                 ; 0000 005C 
+                 ; 0000 005D         // Place your code here
+                 ; 0000 005E         if(SET_L0 || SET_L1)
 000262 9986      	SBIC 0x10,6
 000263 c002      	RJMP _0x66
 000264 9b87      	SBIS 0x10,7
 000265 c006      	RJMP _0x65
                  _0x66:
-                 ; 0000 0069         {
-                 ; 0000 006A             if(SET_L0)
+                 ; 0000 005F         {
+                 ; 0000 0060             if(SET_L0)
 000266 9b86      	SBIS 0x10,6
 000267 c002      	RJMP _0x68
-                 ; 0000 006B             {
-                 ; 0000 006C                 PWM_UPDATE(0);
+                 ; 0000 0061             {
+                 ; 0000 0062                 PWM_UPDATE(0);
 000268 e0a0      	LDI  R26,LOW(0)
 000269 c001      	RJMP _0x83
-                 ; 0000 006D                  //PWM_WRITE(0);
-                 ; 0000 006E             }
-                 ; 0000 006F             else
+                 ; 0000 0063                  //PWM_WRITE(0);
+                 ; 0000 0064             }
+                 ; 0000 0065             else
                  _0x68:
-                 ; 0000 0070             {
-                 ; 0000 0071                 PWM_UPDATE(1);
+                 ; 0000 0066             {
+                 ; 0000 0067                 PWM_UPDATE(1);
 00026a e0a1      	LDI  R26,LOW(1)
                  _0x83:
 00026b de73      	RCALL _PWM_UPDATE
-                 ; 0000 0072                 //PWM_WRITE(1);
-                 ; 0000 0073             }
-                 ; 0000 0074         }
-                 ; 0000 0075 
-                 ; 0000 0076         if(RS_Finish_Flag)
+                 ; 0000 0068                 //PWM_WRITE(1);
+                 ; 0000 0069             }
+                 ; 0000 006A         }
+                 ; 0000 006B 
+                 ; 0000 006C         if(RS_Finish_Flag)
                  _0x65:
 00026c fe21      	SBRS R2,1
 00026d c028      	RJMP _0x6A
-                 ; 0000 0077         {
-                 ; 0000 0078             switch (RS232_BUFF[2])
+                 ; 0000 006D         {
+                 ; 0000 006E             switch (RS232_BUFF[2])
                 +
 00026e 91e0 0197+LDS R30 , _RS232_BUFF + ( 2 )
                  	__GETB1MN _RS232_BUFF,2
 000270 e0f0      	LDI  R31,0
-                 ; 0000 0079             {
-                 ; 0000 007A                 case 0x53 :     // 상태요청
+                 ; 0000 006F             {
+                 ; 0000 0070                 case 0x53 :     // 상태요청
 000271 35e3      	CPI  R30,LOW(0x53)
 000272 e0a0      	LDI  R26,HIGH(0x53)
 000273 07fa      	CPC  R31,R26
 000274 f089      	BREQ _0x6D
-                 ; 0000 007B                    // CHK_Light();
-                 ; 0000 007C                     break;
-                 ; 0000 007D 
-                 ; 0000 007E                 case 0x43 :    // 조명변경
+                 ; 0000 0071                    // CHK_Light();
+                 ; 0000 0072                     break;
+                 ; 0000 0073 
+                 ; 0000 0074                 case 0x43 :    // 조명변경
 000275 34e3      	CPI  R30,LOW(0x43)
 000276 e0a0      	LDI  R26,HIGH(0x43)
 000277 07fa      	CPC  R31,R26
 000278 f419      	BRNE _0x6F
-                 ; 0000 007F                     L0_PWM = RS232_BUFF[4];
+                 ; 0000 0075                     L0_PWM = RS232_BUFF[4];
 000279 940e 02ec 	CALL SUBOPT_0x6
-                 ; 0000 0080                     L1_PWM = RS232_BUFF[5];
-                 ; 0000 0081                    // CHK_Light();      // 조명상태 전송
-                 ; 0000 0082                     break;
+                 ; 0000 0076                     L1_PWM = RS232_BUFF[5];
+                 ; 0000 0077                    // CHK_Light();      // 조명상태 전송
+                 ; 0000 0078                     break;
 00027b c00a      	RJMP _0x6D
-                 ; 0000 0083 
-                 ; 0000 0084                  case 0x57 :    // 조명상태 저장
+                 ; 0000 0079 
+                 ; 0000 007A                  case 0x57 :    // 조명상태 저장
                  _0x6F:
 00027c 35e7      	CPI  R30,LOW(0x57)
 00027d e0a0      	LDI  R26,HIGH(0x57)
 00027e 07fa      	CPC  R31,R26
 00027f f431      	BRNE _0x6D
-                 ; 0000 0085                     L0_PWM = RS232_BUFF[4];
+                 ; 0000 007B                     L0_PWM = RS232_BUFF[4];
 000280 940e 02ec 	CALL SUBOPT_0x6
-                 ; 0000 0086                     L1_PWM = RS232_BUFF[5];
-                 ; 0000 0087                     PWM_UPDATE(0);      // L0 EEPROM Update
+                 ; 0000 007C                     L1_PWM = RS232_BUFF[5];
+                 ; 0000 007D                     PWM_UPDATE(0);      // L0 EEPROM Update
 000282 e0a0      	LDI  R26,LOW(0)
 000283 de5b      	RCALL _PWM_UPDATE
-                 ; 0000 0088                     PWM_UPDATE(1);      // L1 EEPROM Update
+                 ; 0000 007E                     PWM_UPDATE(1);      // L1 EEPROM Update
 000284 e0a1      	LDI  R26,LOW(1)
 000285 de59      	RCALL _PWM_UPDATE
-                 ; 0000 0089                     // CHK_Light();      // 조명상태 전송
-                 ; 0000 008A                     break;
-                 ; 0000 008B             }
+                 ; 0000 007F                     // CHK_Light();      // 조명상태 전송
+                 ; 0000 0080                     break;
+                 ; 0000 0081             }
                  _0x6D:
-                 ; 0000 008C 
-                 ; 0000 008D             if(!L0_PWM)
+                 ; 0000 0082 
+                 ; 0000 0083             if(!L0_PWM)
 000286 b5ea      	IN   R30,0x2A
 000287 b5fb      	IN   R31,0x2A+1
 000288 9730      	SBIW R30,0
 000289 f411      	BRNE _0x71
-                 ; 0000 008E             {
-                 ; 0000 008F                 L0_PORT = 0;
+                 ; 0000 0084             {
+                 ; 0000 0085                 L0_PORT = 0;
 00028a 988d      	CBI  0x11,5
-                 ; 0000 0090             }
-                 ; 0000 0091             else
+                 ; 0000 0086             }
+                 ; 0000 0087             else
 00028b c001      	RJMP _0x74
                  _0x71:
-                 ; 0000 0092             {
-                 ; 0000 0093                 L0_PORT = 1;
+                 ; 0000 0088             {
+                 ; 0000 0089                 L0_PORT = 1;
 00028c 9a8d      	SBI  0x11,5
-                 ; 0000 0094             }
+                 ; 0000 008A             }
                  _0x74:
-                 ; 0000 0095 
-                 ; 0000 0096             if(!L1_PWM)
+                 ; 0000 008B 
+                 ; 0000 008C             if(!L1_PWM)
 00028d b5e8      	IN   R30,0x28
 00028e b5f9      	IN   R31,0x28+1
 00028f 9730      	SBIW R30,0
 000290 f411      	BRNE _0x77
-                 ; 0000 0097             {
-                 ; 0000 0098                 L1_PORT = 0;
+                 ; 0000 008D             {
+                 ; 0000 008E                 L1_PORT = 0;
 000291 988c      	CBI  0x11,4
-                 ; 0000 0099             }
-                 ; 0000 009A             else
+                 ; 0000 008F             }
+                 ; 0000 0090             else
 000292 c001      	RJMP _0x7A
                  _0x77:
-                 ; 0000 009B             {
-                 ; 0000 009C                 L1_PORT = 1;
+                 ; 0000 0091             {
+                 ; 0000 0092                 L1_PORT = 1;
 000293 9a8c      	SBI  0x11,4
-                 ; 0000 009D             }
+                 ; 0000 0093             }
                  _0x7A:
-                 ; 0000 009E 
-                 ; 0000 009F             CHK_Light();      // 조명상태 전송
+                 ; 0000 0094 
+                 ; 0000 0095             CHK_Light();      // 조명상태 전송
 000294 de12      	RCALL _CHK_Light
-                 ; 0000 00A0             Clear_Set();
+                 ; 0000 0096             Clear_Set();
 000295 de01      	RCALL _Clear_Set
-                 ; 0000 00A1 
-                 ; 0000 00A2         }
-                 ; 0000 00A3 
-                 ; 0000 00A4          // putString0(RS232_BUFF);
-                 ; 0000 00A5 
-                 ; 0000 00A6     } // End of while
+                 ; 0000 0097 
+                 ; 0000 0098         }
+                 ; 0000 0099 
+                 ; 0000 009A          // putString0(RS232_BUFF);
+                 ; 0000 009B 
+                 ; 0000 009C     } // End of while
                  _0x6A:
 000296 cfcb      	RJMP _0x62
-                 ; 0000 00A7 
-                 ; 0000 00A8 } // End of main()
+                 ; 0000 009D 
+                 ; 0000 009E } // End of main()
                  _0x7D:
 000297 cfff      	RJMP _0x7D
                  ; .FEND

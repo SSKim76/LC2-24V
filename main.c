@@ -84,16 +84,6 @@ void main(void)
     L0_PWM = EEPROM_read(L0_Addr);
     L1_PWM = EEPROM_read(L1_Addr);
 /*
-   if(!L0_PWM)
-    {
-        L0_PORT = 0;
-    }
-
-    if(!L1_PWM)
-    {
-        L1_PORT = 0;
-    }
-
     //L0_PWM  =   123;
     //L1_PWM  =   215;
 */

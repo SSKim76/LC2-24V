@@ -2172,6 +2172,7 @@ _main:
 	LDI  R30,LOW(0)
 	OUT  0x12,R30
 ;
+;
 ;    // Timer/Counter 0 initialization
 ;    // Clock source: System Clock
 ;    // Clock value: Timer 0 Stopped
@@ -2183,6 +2184,8 @@ _main:
 	OUT  0x32,R30
 ;        OCR0=0x00;
 	OUT  0x3C,R30
+;
+;/* 2019년 11월 26일 PWM Timer Period 1.024ms -> 0.016ms 변경, 아래 내용은 기존 1.024ms 임
 ;
 ;     // Timer/Counter 1 initialization
 ;    // Clock source: System Clock
@@ -2201,10 +2204,45 @@ _main:
 ;    // Compare A Match Interrupt: Off
 ;    // Compare B Match Interrupt: Off
 ;    TCCR1A=(1<<COM1A1) | (0<<COM1A0) | (1<<COM1B1) | (0<<COM1B0) | (0<<WGM11) | (1<<WGM10);
+;    TCCR1B=(0<<ICNC1) | (1<<ICES1) | (0<<WGM13) | (1<<WGM12) | (0<<CS12) | (1<<CS11) | (1<<CS10);
+;    TCNT1H=0x00;
+;    TCNT1L=0x00;
+;    ICR1H=0x00;
+;    ICR1L=0x00;
+;    OCR1AH=0x00;
+;    OCR1AL=0x00;
+;    OCR1BH=0x00;
+;    OCR1BL=0x00;
+;
+;    여기까지 2019년 11월 26일 PWM Timer Period 1.024ms -> 0.016ms 변경을 위해 주석처리
+;
+;*/
+;
+;
+;
+;// 2019년 11월 26일 PWM Timer Period 1.024ms -> 0.016ms 변경
+;
+;    // Timer/Counter 1 initialization
+;    // Clock source: System Clock
+;    // Clock value: 16000.000 kHz
+;    // Mode: Fast PWM top=0x00FF
+;    // OC1A output: Non-Inverted PWM
+;    // OC1B output: Non-Inverted PWM
+;    // Noise Canceler: Off
+;    // Input Capture on Rising Edge
+;    // Timer Period: 0.016 ms
+;    // Output Pulse(s):
+;    // OC1A Period: 0.016 ms Width: 0 us
+;    // OC1B Period: 0.016 ms Width: 0 us
+;    // Timer1 Overflow Interrupt: Off
+;    // Input Capture Interrupt: Off
+;    // Compare A Match Interrupt: Off
+;    // Compare B Match Interrupt: Off
+;    TCCR1A=(1<<COM1A1) | (0<<COM1A0) | (1<<COM1B1) | (0<<COM1B0) | (0<<WGM11) | (1<<WGM10);
 	LDI  R30,LOW(161)
 	OUT  0x2F,R30
-;    TCCR1B=(0<<ICNC1) | (1<<ICES1) | (0<<WGM13) | (1<<WGM12) | (0<<CS12) | (1<<CS11) | (1<<CS10);
-	LDI  R30,LOW(75)
+;    TCCR1B=(0<<ICNC1) | (1<<ICES1) | (0<<WGM13) | (1<<WGM12) | (0<<CS12) | (0<<CS11) | (1<<CS10);
+	LDI  R30,LOW(73)
 	OUT  0x2E,R30
 ;    TCNT1H=0x00;
 	LDI  R30,LOW(0)
@@ -2223,6 +2261,9 @@ _main:
 	OUT  0x29,R30
 ;    OCR1BL=0x00;
 	OUT  0x28,R30
+;
+;// 여기까지 추가된 내용
+;
 ;
 ;    // Timer/Counter 2 initialization
 ;    // Clock source: System Clock
@@ -2247,6 +2288,9 @@ _main:
 ;    TIMSK=(0<<OCIE2) | (1<<TOIE2) | (0<<TICIE1) | (0<<OCIE1A) | (0<<OCIE1B) | (0<<TOIE1) | (0<<OCIE0) | (0<<TOIE0);
 	LDI  R30,LOW(64)
 	OUT  0x39,R30
+;
+;
+;
 ;
 ;    // External Interrupt(s) initialization
 ;    // INT0: On
@@ -2321,150 +2365,140 @@ _0x61:
 	OUT  0x28+1,R31
 	OUT  0x28,R30
 ; 0000 0056 /*
-; 0000 0057    if(!L0_PWM)
-; 0000 0058     {
-; 0000 0059         L0_PORT = 0;
-; 0000 005A     }
-; 0000 005B 
-; 0000 005C     if(!L1_PWM)
-; 0000 005D     {
-; 0000 005E         L1_PORT = 0;
-; 0000 005F     }
-; 0000 0060 
-; 0000 0061     //L0_PWM  =   123;
-; 0000 0062     //L1_PWM  =   215;
-; 0000 0063 */
-; 0000 0064     while (1)
+; 0000 0057     //L0_PWM  =   123;
+; 0000 0058     //L1_PWM  =   215;
+; 0000 0059 */
+; 0000 005A     while (1)
 _0x62:
-; 0000 0065     {
-; 0000 0066 
-; 0000 0067         // Place your code here
-; 0000 0068         if(SET_L0 || SET_L1)
+; 0000 005B     {
+; 0000 005C 
+; 0000 005D         // Place your code here
+; 0000 005E         if(SET_L0 || SET_L1)
 	SBIC 0x10,6
 	RJMP _0x66
 	SBIS 0x10,7
 	RJMP _0x65
 _0x66:
-; 0000 0069         {
-; 0000 006A             if(SET_L0)
+; 0000 005F         {
+; 0000 0060             if(SET_L0)
 	SBIS 0x10,6
 	RJMP _0x68
-; 0000 006B             {
-; 0000 006C                 PWM_UPDATE(0);
+; 0000 0061             {
+; 0000 0062                 PWM_UPDATE(0);
 	LDI  R26,LOW(0)
 	RJMP _0x83
-; 0000 006D                  //PWM_WRITE(0);
-; 0000 006E             }
-; 0000 006F             else
+; 0000 0063                  //PWM_WRITE(0);
+; 0000 0064             }
+; 0000 0065             else
 _0x68:
-; 0000 0070             {
-; 0000 0071                 PWM_UPDATE(1);
+; 0000 0066             {
+; 0000 0067                 PWM_UPDATE(1);
 	LDI  R26,LOW(1)
 _0x83:
 	RCALL _PWM_UPDATE
-; 0000 0072                 //PWM_WRITE(1);
-; 0000 0073             }
-; 0000 0074         }
-; 0000 0075 
-; 0000 0076         if(RS_Finish_Flag)
+; 0000 0068                 //PWM_WRITE(1);
+; 0000 0069             }
+; 0000 006A         }
+; 0000 006B 
+; 0000 006C         if(RS_Finish_Flag)
 _0x65:
 	SBRS R2,1
 	RJMP _0x6A
-; 0000 0077         {
-; 0000 0078             switch (RS232_BUFF[2])
+; 0000 006D         {
+; 0000 006E             switch (RS232_BUFF[2])
 	__GETB1MN _RS232_BUFF,2
 	LDI  R31,0
-; 0000 0079             {
-; 0000 007A                 case 0x53 :     // 상태요청
+; 0000 006F             {
+; 0000 0070                 case 0x53 :     // 상태요청
 	CPI  R30,LOW(0x53)
 	LDI  R26,HIGH(0x53)
 	CPC  R31,R26
 	BREQ _0x6D
-; 0000 007B                    // CHK_Light();
-; 0000 007C                     break;
-; 0000 007D 
-; 0000 007E                 case 0x43 :    // 조명변경
+; 0000 0071                    // CHK_Light();
+; 0000 0072                     break;
+; 0000 0073 
+; 0000 0074                 case 0x43 :    // 조명변경
 	CPI  R30,LOW(0x43)
 	LDI  R26,HIGH(0x43)
 	CPC  R31,R26
 	BRNE _0x6F
-; 0000 007F                     L0_PWM = RS232_BUFF[4];
+; 0000 0075                     L0_PWM = RS232_BUFF[4];
 	CALL SUBOPT_0x6
-; 0000 0080                     L1_PWM = RS232_BUFF[5];
-; 0000 0081                    // CHK_Light();      // 조명상태 전송
-; 0000 0082                     break;
+; 0000 0076                     L1_PWM = RS232_BUFF[5];
+; 0000 0077                    // CHK_Light();      // 조명상태 전송
+; 0000 0078                     break;
 	RJMP _0x6D
-; 0000 0083 
-; 0000 0084                  case 0x57 :    // 조명상태 저장
+; 0000 0079 
+; 0000 007A                  case 0x57 :    // 조명상태 저장
 _0x6F:
 	CPI  R30,LOW(0x57)
 	LDI  R26,HIGH(0x57)
 	CPC  R31,R26
 	BRNE _0x6D
-; 0000 0085                     L0_PWM = RS232_BUFF[4];
+; 0000 007B                     L0_PWM = RS232_BUFF[4];
 	CALL SUBOPT_0x6
-; 0000 0086                     L1_PWM = RS232_BUFF[5];
-; 0000 0087                     PWM_UPDATE(0);      // L0 EEPROM Update
+; 0000 007C                     L1_PWM = RS232_BUFF[5];
+; 0000 007D                     PWM_UPDATE(0);      // L0 EEPROM Update
 	LDI  R26,LOW(0)
 	RCALL _PWM_UPDATE
-; 0000 0088                     PWM_UPDATE(1);      // L1 EEPROM Update
+; 0000 007E                     PWM_UPDATE(1);      // L1 EEPROM Update
 	LDI  R26,LOW(1)
 	RCALL _PWM_UPDATE
-; 0000 0089                     // CHK_Light();      // 조명상태 전송
-; 0000 008A                     break;
-; 0000 008B             }
+; 0000 007F                     // CHK_Light();      // 조명상태 전송
+; 0000 0080                     break;
+; 0000 0081             }
 _0x6D:
-; 0000 008C 
-; 0000 008D             if(!L0_PWM)
+; 0000 0082 
+; 0000 0083             if(!L0_PWM)
 	IN   R30,0x2A
 	IN   R31,0x2A+1
 	SBIW R30,0
 	BRNE _0x71
-; 0000 008E             {
-; 0000 008F                 L0_PORT = 0;
+; 0000 0084             {
+; 0000 0085                 L0_PORT = 0;
 	CBI  0x11,5
-; 0000 0090             }
-; 0000 0091             else
+; 0000 0086             }
+; 0000 0087             else
 	RJMP _0x74
 _0x71:
-; 0000 0092             {
-; 0000 0093                 L0_PORT = 1;
+; 0000 0088             {
+; 0000 0089                 L0_PORT = 1;
 	SBI  0x11,5
-; 0000 0094             }
+; 0000 008A             }
 _0x74:
-; 0000 0095 
-; 0000 0096             if(!L1_PWM)
+; 0000 008B 
+; 0000 008C             if(!L1_PWM)
 	IN   R30,0x28
 	IN   R31,0x28+1
 	SBIW R30,0
 	BRNE _0x77
-; 0000 0097             {
-; 0000 0098                 L1_PORT = 0;
+; 0000 008D             {
+; 0000 008E                 L1_PORT = 0;
 	CBI  0x11,4
-; 0000 0099             }
-; 0000 009A             else
+; 0000 008F             }
+; 0000 0090             else
 	RJMP _0x7A
 _0x77:
-; 0000 009B             {
-; 0000 009C                 L1_PORT = 1;
+; 0000 0091             {
+; 0000 0092                 L1_PORT = 1;
 	SBI  0x11,4
-; 0000 009D             }
+; 0000 0093             }
 _0x7A:
-; 0000 009E 
-; 0000 009F             CHK_Light();      // 조명상태 전송
+; 0000 0094 
+; 0000 0095             CHK_Light();      // 조명상태 전송
 	RCALL _CHK_Light
-; 0000 00A0             Clear_Set();
+; 0000 0096             Clear_Set();
 	RCALL _Clear_Set
-; 0000 00A1 
-; 0000 00A2         }
-; 0000 00A3 
-; 0000 00A4          // putString0(RS232_BUFF);
-; 0000 00A5 
-; 0000 00A6     } // End of while
+; 0000 0097 
+; 0000 0098         }
+; 0000 0099 
+; 0000 009A          // putString0(RS232_BUFF);
+; 0000 009B 
+; 0000 009C     } // End of while
 _0x6A:
 	RJMP _0x62
-; 0000 00A7 
-; 0000 00A8 } // End of main()
+; 0000 009D 
+; 0000 009E } // End of main()
 _0x7D:
 	RJMP _0x7D
 ; .FEND

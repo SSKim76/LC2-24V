@@ -153,7 +153,8 @@ void main(void)
             }
             else
             {
-                L
+                L1_PORT = 1;
+            }
 
             CHK_Light();      // 조명상태 전송
             Clear_Set();
